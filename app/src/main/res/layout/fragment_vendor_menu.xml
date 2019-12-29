@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:text="@string/text_menu_menu"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_17sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/flag_india"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/text_menu_saved_surveys"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/flag_india"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/text_menu_submitted_surveys"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/flag_india"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/text_menu_current_winners"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/flag_india"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/text_menu_redeem_points"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/flag_india"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/text_menu_invite_friends_family"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_15sdp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:background="@color/color_black_trans" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:text="@string/text_menu_about"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_17sdp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/flag_india"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/text_menu_about_survey_raffle"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/flag_india"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/text_menu_give_feedback"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/flag_india"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/text_menu_advertisement_with_us"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/flag_india"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/text_menu_terms_of_use"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/flag_india"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/text_menu_privacy_policy"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@drawable/shape_rounded_background_button"
+            android:paddingStart="@dimen/_20sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_20sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:text="@string/text_menu_logout"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/_17sdp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

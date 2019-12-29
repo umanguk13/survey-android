@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/activity_vendor_main_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/activity_vendor_main_bottom_navigation" />
+
+        <it.sephiroth.android.library.bottomnavigation.BottomNavigation
+            android:id="@+id/activity_vendor_main_bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_black"
+            app:bbn_entries="@menu/bottombar_menu_items"
+            app:bbn_scrollEnabled="true"
+            app:layout_behavior="@string/bbn_phone_view_behavior" />
+
+    </RelativeLayout>
+
+</layout>

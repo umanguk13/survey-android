@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="color_black_trans">#70000000</color>
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_black">#000000</color>
+
+    <color name="color_blue">#2196F3</color>
+    <color name="color_sky">#8BBCF5</color>
+
+    <color name="color_sky_blue">#00AFDE</color>
+    <color name="color_text_hint">#9EAACC</color>
+
+    <color name="theme_color">#4D569B</color>
+    <color name="floating_btn_color">#F8B9FF</color>
+    <color name="color_grey">#838383</color>
+    <color name="color_light_grey">#D3D1D1</color>
+
+    <color name="color_friend_invite_border_color">#FF4E50</color>
+
+</resources>

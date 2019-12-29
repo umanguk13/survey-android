@@ -1,0 +1,144 @@
+<resources>
+    <string name="app_name">Survey App</string>
+
+    <!--Facebook App IDs For Live-->
+    <string name="facebook_app_id">3397613960312397</string>
+    <string name="fb_login_protocol_scheme">fb3397613960312397</string>
+
+    <!-- Twitter App Key and Secret Token-->
+    <string name="twitter_consumer_key">5aVIPvXN1ajP0zHpMrlKXprLP</string>
+    <string name="twitter_consumer_secret">lBKiuL6dYJUV3GK3yHMx1LYLwGy9oJfbZCQNRkJEHeWMHHaQku</string>
+
+    <string name="something_went_wrong_fix_soon">Oops Something went wrong, we will fix it soon...</string>
+    <string name="internet_error">Please check your internet connection and try again later.</string>
+
+    <!--    Login Screen-->
+    <string name="text_login_welcome">Welcome to Survey Raffle!</string>
+    <string name="text_login_with">Log In with</string>
+    <string name="text_login_create_account">Create Account</string>
+    <string name="text_login_login">Log In</string>
+    <string name="text_login_terms_and_condition">Terms &amp; Conditions</string>
+    <string name="text_login_enter_your_credentials">Enter your credentials!</string>
+
+    <string name="text_login_username">Username</string>
+    <string name="text_login_password">Password</string>
+    <string name="text_login_forgot_password">Forgot Password?</string>
+
+    <string name="didnt_receive_code"><u>Resend OTP</u></string>
+    <string name="remaining">remaining</string>
+    <string name="need_your_phone_number">WE NEED YOUR PHONE NUMBER \n SO WE KNOW IT’S YOU</string>
+    <string name="do_you_get_opt">DO YOU GET YOUR OTP CODE?</string>
+    <string name="code_was_sent_on_your_phone_number">A CODE WAS SENT ON YOUR PHONE NUMBER</string>
+    <string name="phone_number">Phone number</string>
+
+    <string name="enter_phone_number">Enter phone number</string>
+
+    <!--Create Account Screen-->
+    <string name="text_create_account_sign_up">Hi There!\nSign up for FREE account</string>
+    <string name="text_create_account_choose_your_username">Choose your Username</string>
+    <string name="text_create_account_enter_your_email">Enter your Email</string>
+    <string name="text_create_account_choose_a_password">Choose a Password</string>
+    <string name="text_create_account_confirm_password">Confirm Password</string>
+    <string name="text_create_account_phone_no">Phone No.</string>
+    <string name="text_create_account_profession">Profession</string>
+    <string name="text_create_account_age">Age</string>
+    <string name="text_create_account_address">Address</string>
+    <string name="text_create_account_use_gps">Use GPS</string>
+    <string name="text_create_account_current_location">Current Location</string>
+    <string name="text_create_account_create_account">Create Account</string>
+
+    <string name="text_submit">Submit</string>
+    <string name="text_forgot_password_enter_email_phone_number">Enter Email/Phone number</string>
+    <string name="text_forgot_password_recovery_password">Recovery your password!</string>
+    <string name="text_forgot_password_dont_have_account">Don\'t have an account? Create</string>
+
+    <string name="text_login_phone">Login with your phone!</string>
+    <string name="text_login_enter_phone_number">Enter Phone number</string>
+    <string name="text_login_next">Next</string>
+
+    <string name="text_verify_otp">Enter your OTP</string>
+    <string name="text_verify_enter_otp">Enter OTP</string>
+    <string name="text_confirm">Confirm</string>
+
+    <!--User Flow-->
+    <!--Dashboard-->
+    <string name="text_user_dashboard_hot_surveys">Hot Surveys</string>
+    <string name="text_user_dashboard_trending_surveys">Trending Surveys</string>
+
+    <!--Profile Screen-->
+    <string name="text_profile_email">Email</string>
+    <string name="text_profile_password">Password</string>
+    <string name="text_profile_gender">Gender</string>
+    <string name="text_profile_phone_number">Phone Number</string>
+    <string name="text_profile_address">Address</string>
+    <string name="text_profile_use_gps">Use GPS</string>
+    <string name="text_profile_tell_us_about_yourself">Tell Us a little about yourself</string>
+
+    <string name="text_profile_job_level">What is your job level?</string>
+    <string name="text_profile_individual_contributor">Individual contributor</string>
+    <string name="text_profile_manager">Manager</string>
+    <string name="text_profile_director">Director</string>
+    <string name="text_profile_c_level">C-Level</string>
+    <string name="text_profile_vice_president">Vice President</string>
+    <string name="text_profile_not_applicable">Not applicable</string>
+
+    <string name="text_profile_preferred_survey">Preferred surveys you would like to take?</string>
+    <string name="text_profile_change_later">You can always change this later</string>
+    <string name="text_profile_food">Food</string>
+    <string name="text_profile_politics">Politics</string>
+    <string name="text_profile_information_technology">Information Technology</string>
+    <string name="text_profile_fashion">Fashion</string>
+    <string name="text_profile_arts_media">Arts &amp; Media</string>
+
+    <string name="text_profile_notification">ALL NOTIFICATIONS</string>
+
+    <!--Menu Screen-->
+    <string name="text_menu_menu">MENU</string>
+    <string name="text_menu_saved_surveys">Saved Surveys</string>
+    <string name="text_menu_submitted_surveys">Submitted Surveys</string>
+    <string name="text_menu_current_winners">Current Winners</string>
+    <string name="text_menu_redeem_points">Redeem Points</string>
+    <string name="text_menu_invite_friends_family">Invite friend/family</string>
+
+    <string name="text_menu_about">ABOUT</string>
+    <string name="text_menu_about_survey_raffle">About Survey Raffle</string>
+    <string name="text_menu_give_feedback">Give Feedback</string>
+    <string name="text_menu_advertisement_with_us">Advertisement with us</string>
+    <string name="text_menu_terms_of_use">Terms of Use</string>
+    <string name="text_menu_privacy_policy">Privacy Policy</string>
+    <string name="text_menu_logout">Log out</string>
+
+    <!--Vendor Flow-->
+    <!--Dashboard-->
+    <string name="text_vendor_dashboard_current_surveys">Current Surveys</string>
+    <string name="text_vendor_dashboard_previous_surveys">Previous Surveys</string>
+
+    <string name="text_create_survey_category">Category</string>
+    <string name="text_create_survey_title">Survey Title</string>
+    <string name="text_create_survey_title_hint">Enter Title (Example: Pizza Store)</string>
+
+    <string name="text_create_survey_posted_by">Posted By</string>
+    <string name="text_create_survey_posted_by_hint">Vendor name (default it takes from server)</string>
+
+    <string name="text_create_survey_required_responses">Required Responses?</string>
+    <string name="text_create_survey_required_responses_hint">0 to 200</string>
+
+    <string name="text_create_survey_free_points">Free Points</string>
+    <string name="text_create_survey_10_from_app">10 From App</string>
+
+    <string name="text_create_survey_start_date">Start Date</string>
+    <string name="text_create_survey_end_date">End Date</string>
+
+    <string name="text_create_survey_participate_criteria">Prarticipate Criteria</string>
+    <string name="text_create_survey_edit">Edit</string>
+
+    <string name="text_create_survey_profession">Profession</string>
+    <string name="text_create_survey_age">Age</string>
+
+    <string name="text_create_survey_to">to</string>
+    <string name="text_create_survey_location">Location</string>
+
+    <string name="text_create_survey_group">Group</string>
+    <string name="text_create_survey_next">NEXT</string>
+
+</resources>

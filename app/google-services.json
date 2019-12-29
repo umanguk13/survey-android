@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "718413996139",
+    "firebase_url": "https://survey-raffle-1575655196358.firebaseio.com",
+    "project_id": "survey-raffle-1575655196358",
+    "storage_bucket": "survey-raffle-1575655196358.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718413996139:android:f06db456632fc7d623112e",
+        "android_client_info": {
+          "package_name": "com.survey.surveyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "718413996139-qk0vcqrc6smif6mnp8o98etbkuieqjgg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.survey.surveyapp",
+            "certificate_hash": "46502af6dd465471337a420be6d14baa28503191"
+          }
+        },
+        {
+          "client_id": "718413996139-m0jb951a2ng79luu5ji33s607rd6pbjj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH3ab235rr0dUpNflbi9qiGbrlJoj4vuA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "718413996139-m0jb951a2ng79luu5ji33s607rd6pbjj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
