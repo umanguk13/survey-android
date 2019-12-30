@@ -69,6 +69,7 @@
                         android:inputType="text"
                         android:lines="1"
                         android:maxLines="1"
+                        android:text='@={createAccountViewModel.mStringUsername}'
                         android:textColor="@color/color_black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -92,6 +93,7 @@
                         android:inputType="text"
                         android:lines="1"
                         android:maxLines="1"
+                        android:text='@={createAccountViewModel.mStringEmail}'
                         android:textColor="@color/color_black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -115,6 +117,7 @@
                         android:inputType="text"
                         android:lines="1"
                         android:maxLines="1"
+                        android:text='@={createAccountViewModel.mStringPassword}'
                         android:textColor="@color/color_black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -138,6 +141,7 @@
                         android:inputType="text"
                         android:lines="1"
                         android:maxLines="1"
+                        android:text='@={createAccountViewModel.mStringConfirmPassword}'
                         android:textColor="@color/color_black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -161,55 +165,50 @@
                         android:inputType="text"
                         android:lines="1"
                         android:maxLines="1"
+                        android:text='@={createAccountViewModel.mStringPhoneNumber}'
                         android:textColor="@color/color_black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/activity_login_email_email_input_layout_profession"
+                <AutoCompleteTextView
+                    android:id="@+id/activity_login_email_email_edittext_profession"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_12sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:ellipsize="end"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:hint="@string/text_create_account_profession"
-                    android:textColorHint="@color/color_black"
-                    app:boxBackgroundColor="@android:color/transparent">
+                    android:inputType="none"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:text='@={createAccountViewModel.mStringProfession}'
+                    android:textColor="@color/color_black"
+                    tools:ignore="LabelFor" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/activity_login_email_email_edittext_profession"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:inputType="text"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:textColor="@color/color_black" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/activity_login_email_email_input_layout_age"
+                <AutoCompleteTextView
+                    android:id="@+id/activity_login_email_email_edittext_age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_12sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:ellipsize="end"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:hint="@string/text_create_account_age"
-                    android:textColorHint="@color/color_black"
-                    app:boxBackgroundColor="@android:color/transparent">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/activity_login_email_email_edittext_age"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:inputType="text"
-                        android:lines="1"
-                        android:maxLines="1"
-                        android:textColor="@color/color_black" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:inputType="none"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:text='@={createAccountViewModel.mStringAge}'
+                    android:textColor="@color/color_black"
+                    tools:ignore="LabelFor" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/activity_login_email_email_input_layout_address"
@@ -230,6 +229,7 @@
                         android:inputType="text"
                         android:lines="1"
                         android:maxLines="1"
+                        android:text='@={createAccountViewModel.mStringAddress}'
                         android:textColor="@color/color_black" />
 
                 </com.google.android.material.textfield.TextInputLayout>

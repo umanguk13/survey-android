@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="AppThemeNoActionbar" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="AppThemeNoActionbar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/color_black</item>
         <item name="colorPrimaryDark">@color/color_black</item>
         <item name="colorAccent">@color/color_black</item>

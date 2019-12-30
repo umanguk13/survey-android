@@ -47,6 +47,15 @@
     <string name="text_create_account_current_location">Current Location</string>
     <string name="text_create_account_create_account">Create Account</string>
 
+    <string-array name="array_profession">
+        <item>Individual contributor</item>
+        <item>Manager</item>
+        <item>Director</item>
+        <item>C-Level</item>
+        <item>Vice President</item>
+        <item>Not applicable</item>
+    </string-array>
+
     <string name="text_submit">Submit</string>
     <string name="text_forgot_password_enter_email_phone_number">Enter Email/Phone number</string>
     <string name="text_forgot_password_recovery_password">Recovery your password!</string>

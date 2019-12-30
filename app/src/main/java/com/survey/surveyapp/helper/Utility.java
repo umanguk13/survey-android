@@ -75,13 +75,6 @@ public class Utility {
         editor.commit();
     }
 
-    public void writeRememberSharedPreferencesString(String key, String value) {
-        SharedPreferences settings = mActivity.getSharedPreferences(TagValues.PREFS_NAME_REMEMBER, 0);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString(key, value);
-        editor.commit();
-    }
-
     public void clearAllPrefData() {
         SharedPreferences settings = mActivity.getSharedPreferences(TagValues.PREFS_NAME, 0);
         settings.edit().clear().commit();
@@ -90,17 +83,6 @@ public class Utility {
     public String getAppPrefString(String key) {
         try {
             SharedPreferences settings = mActivity.getSharedPreferences(TagValues.PREFS_NAME, 0);
-            String value = settings.getString(key, "");
-            return value;
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return "";
-        }
-    }
-
-    public String getAppRememberPrefString(String key) {
-        try {
-            SharedPreferences settings = mActivity.getSharedPreferences(TagValues.PREFS_NAME_REMEMBER, 0);
             String value = settings.getString(key, "");
             return value;
         } catch (Exception ex) {

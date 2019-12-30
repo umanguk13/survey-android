@@ -1,5 +1,6 @@
 package com.survey.surveyapp.viewmodels;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.survey.surveyapp.R;
@@ -16,10 +17,29 @@ public class CreateAccountViewModel extends ViewModel {
     private MyService mMyService;
     private Utility mUtility;
 
+    public MutableLiveData<String> mStringUsername = new MutableLiveData<>();
+    public MutableLiveData<String> mStringEmail = new MutableLiveData<>();
+    public MutableLiveData<String> mStringPassword = new MutableLiveData<>();
+    public MutableLiveData<String> mStringConfirmPassword = new MutableLiveData<>();
+    public MutableLiveData<String> mStringPhoneNumber = new MutableLiveData<>();
+    public MutableLiveData<String> mStringProfession = new MutableLiveData<>();
+    public MutableLiveData<String> mStringAge = new MutableLiveData<>();
+    public MutableLiveData<String> mStringAddress = new MutableLiveData<>();
+
     public CreateAccountViewModel(ActivityCreateAccount mActivityCreateAccount, MyService myService) {
         this.mActivityCreateAccount = mActivityCreateAccount;
         mUtility = new Utility(this.mActivityCreateAccount);
         mMyService = myService;
+
+        mStringUsername.setValue("");
+        mStringEmail.setValue("");
+        mStringPassword.setValue("");
+        mStringConfirmPassword.setValue("");
+        mStringPhoneNumber.setValue("");
+        mStringProfession.setValue("");
+        mStringAge.setValue("");
+        mStringAddress.setValue("");
+
     }
 
     public void doNormalRegister() {

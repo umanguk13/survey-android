@@ -1,12 +1,9 @@
 package com.survey.surveyapp.viewmodels;
 
-import android.widget.Toast;
-
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.survey.surveyapp.R;
-import com.survey.surveyapp.activities.ActivityCreateAccount;
 import com.survey.surveyapp.activities.ActivityLoginEmail;
 import com.survey.surveyapp.helper.Utility;
 import com.survey.surveyapp.service.MyService;
