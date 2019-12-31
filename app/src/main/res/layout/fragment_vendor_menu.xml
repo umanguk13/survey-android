@@ -16,58 +16,85 @@
             android:paddingTop="@dimen/_5sdp"
             android:paddingEnd="@dimen/_10sdp"
             android:paddingBottom="@dimen/_5sdp"
-            android:text="@string/text_menu_menu"
+            android:text="@string/text_vendor_menu_menu"
             android:textColor="@color/color_black"
             android:textSize="@dimen/_17sdp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/fragment_vendor_menu_textview_saved_surveys"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/flag_india"
             android:drawablePadding="@dimen/_8sdp"
             android:padding="@dimen/_8sdp"
-            android:text="@string/text_menu_saved_surveys"
+            android:text="@string/text_vendor_menu_saved_surveys"
             android:textColor="@color/color_black"
             android:textSize="@dimen/_15sdp" />
 
         <TextView
+            android:id="@+id/fragment_vendor_menu_textview_posted_surveys"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/flag_india"
             android:drawablePadding="@dimen/_8sdp"
             android:padding="@dimen/_8sdp"
-            android:text="@string/text_menu_submitted_surveys"
+            android:text="@string/text_vendor_menu_posted_surveys"
             android:textColor="@color/color_black"
             android:textSize="@dimen/_15sdp" />
 
         <TextView
+            android:id="@+id/fragment_vendor_menu_textview_received_survey_response"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/flag_india"
             android:drawablePadding="@dimen/_8sdp"
             android:padding="@dimen/_8sdp"
-            android:text="@string/text_menu_current_winners"
+            android:text="@string/text_vendor_menu_received_survey_response"
             android:textColor="@color/color_black"
             android:textSize="@dimen/_15sdp" />
 
         <TextView
+            android:id="@+id/fragment_vendor_menu_textview_draw_a_raffle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/flag_india"
             android:drawablePadding="@dimen/_8sdp"
             android:padding="@dimen/_8sdp"
-            android:text="@string/text_menu_redeem_points"
+            android:text="@string/text_vendor_menu_draw_a_raffle"
             android:textColor="@color/color_black"
             android:textSize="@dimen/_15sdp" />
 
         <TextView
+            android:id="@+id/fragment_vendor_menu_textview_winners"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/flag_india"
             android:drawablePadding="@dimen/_8sdp"
             android:padding="@dimen/_8sdp"
-            android:text="@string/text_menu_invite_friends_family"
+            android:text="@string/text_vendor_menu_winners"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:id="@+id/fragment_vendor_menu_textview_reports"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/flag_india"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/text_vendor_menu_reports"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_15sdp" />
+
+        <TextView
+            android:id="@+id/fragment_vendor_menu_textview_purchase_a_plan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/flag_india"
+            android:drawablePadding="@dimen/_8sdp"
+            android:padding="@dimen/_8sdp"
+            android:text="@string/text_vendor_menu_purchase_a_plan"
             android:textColor="@color/color_black"
             android:textSize="@dimen/_15sdp" />
 
@@ -85,62 +112,68 @@
             android:paddingTop="@dimen/_5sdp"
             android:paddingEnd="@dimen/_10sdp"
             android:paddingBottom="@dimen/_5sdp"
-            android:text="@string/text_menu_about"
+            android:text="@string/text_vendor_menu_about"
             android:textColor="@color/color_black"
             android:textSize="@dimen/_17sdp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/fragment_vendor_menu_textview_about_survey_raffle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/flag_india"
             android:drawablePadding="@dimen/_8sdp"
             android:padding="@dimen/_8sdp"
-            android:text="@string/text_menu_about_survey_raffle"
+            android:text="@string/text_vendor_menu_about_survey_raffle"
             android:textColor="@color/color_black"
             android:textSize="@dimen/_15sdp" />
 
         <TextView
+            android:id="@+id/fragment_vendor_menu_textview_give_feedback"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/flag_india"
             android:drawablePadding="@dimen/_8sdp"
             android:padding="@dimen/_8sdp"
-            android:text="@string/text_menu_give_feedback"
+            android:text="@string/text_vendor_menu_give_feedback"
             android:textColor="@color/color_black"
             android:textSize="@dimen/_15sdp" />
 
         <TextView
+            android:id="@+id/fragment_vendor_menu_textview_advertisement_with_us"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/flag_india"
             android:drawablePadding="@dimen/_8sdp"
             android:padding="@dimen/_8sdp"
-            android:text="@string/text_menu_advertisement_with_us"
+            android:text="@string/text_vendor_menu_advertisement_with_us"
             android:textColor="@color/color_black"
             android:textSize="@dimen/_15sdp" />
 
         <TextView
+            android:id="@+id/fragment_vendor_menu_textview_terms_of_use"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/flag_india"
             android:drawablePadding="@dimen/_8sdp"
             android:padding="@dimen/_8sdp"
-            android:text="@string/text_menu_terms_of_use"
+            android:text="@string/text_vendor_menu_terms_of_use"
             android:textColor="@color/color_black"
             android:textSize="@dimen/_15sdp" />
 
         <TextView
+            android:id="@+id/fragment_vendor_menu_textview_privacy_policy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/flag_india"
             android:drawablePadding="@dimen/_8sdp"
             android:padding="@dimen/_8sdp"
-            android:text="@string/text_menu_privacy_policy"
+            android:text="@string/text_vendor_menu_privacy_policy"
             android:textColor="@color/color_black"
             android:textSize="@dimen/_15sdp" />
 
         <TextView
+            android:id="@+id/fragment_vendor_menu_textview_logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10sdp"
@@ -150,7 +183,7 @@
             android:paddingTop="@dimen/_10sdp"
             android:paddingEnd="@dimen/_20sdp"
             android:paddingBottom="@dimen/_10sdp"
-            android:text="@string/text_menu_logout"
+            android:text="@string/text_vendor_menu_logout"
             android:textColor="@color/color_white"
             android:textSize="@dimen/_17sdp"
             android:textStyle="bold" />

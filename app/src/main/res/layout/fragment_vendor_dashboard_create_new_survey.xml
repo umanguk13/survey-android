@@ -50,7 +50,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:hint="@string/text_create_survey_title_hint"
                 android:inputType="text"
                 android:lines="1"
                 android:maxLines="1"
@@ -72,7 +71,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:hint="@string/text_create_survey_posted_by_hint"
                 android:inputType="text"
                 android:lines="1"
                 android:maxLines="1"
@@ -379,7 +377,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/activity_login_phone_number_email_textview_login"
+            android:id="@+id/fragment_vendor_dashboard_create_new_survey_textview_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"

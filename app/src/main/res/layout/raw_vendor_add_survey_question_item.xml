@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_8sdp"
+    android:layout_marginEnd="@dimen/_8sdp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/raw_vendor_add_survey_question_item_textview_question_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/text_add_questions_title"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/_15sdp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fragment_create_survey_input_layout_choose_survey_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:hint="@string/text_add_questions_survey_question_hint"
+        android:textColorHint="@color/color_black"
+        app:boxBackgroundColor="@android:color/transparent"
+        app:counterEnabled="true"
+        app:counterMaxLength="200">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/activity_login_email_email_edittext_choose_survey_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:inputType="text"
+            android:lines="1"
+            android:maxLines="1"
+            android:textColor="@color/color_black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/text_add_questions_choose_answer_option"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/_15sdp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/text_add_questions_multi_choice"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_13sdp" />
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/text_add_questions_single_choice"
+            android:textColor="@color/color_black"
+            android:textSize="@dimen/_13sdp" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:text="@string/text_add_questions_choice_a"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/_15sdp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:hint="@string/text_add_questions_enter_text_hint"
+        android:inputType="text"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/color_black" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/text_add_questions_choice_b"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/_15sdp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:hint="@string/text_add_questions_enter_text_hint"
+        android:inputType="text"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/color_black" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/text_add_questions_choice_c"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/_15sdp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:hint="@string/text_add_questions_enter_text_hint"
+        android:inputType="text"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/color_black" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/text_add_questions_choice_d"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/_15sdp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:hint="@string/text_add_questions_enter_text_hint"
+        android:inputType="text"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/color_black" />
+
+    <androidx.appcompat.widget.AppCompatCheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="@string/text_add_questions_user_comments"
+        android:textColor="@color/color_black"
+        android:textSize="@dimen/_13sdp" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:hint="@string/text_add_questions_enter_text_hint"
+        android:inputType="text"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="@color/color_black" />
+
+</LinearLayout>

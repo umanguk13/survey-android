@@ -27,7 +27,7 @@ public class ActivitySplash extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent mIntentLogin = new Intent(ActivitySplash.this, ActivityLogin.class);
+                Intent mIntentLogin = new Intent(ActivitySplash.this, ActivityVendorMain.class);
                 finishAffinity();
                 startActivity(mIntentLogin);
             }

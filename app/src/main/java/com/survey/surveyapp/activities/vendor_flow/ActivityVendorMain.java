@@ -98,4 +98,8 @@ public class ActivityVendorMain extends UserBaseActivity {
         }
     }
 
+    public void moveToPostedSurveys() {
+        mActivityVendorMainBinding.activityVendorMainViewpager.setCurrentItem(0);
+    }
+
 }

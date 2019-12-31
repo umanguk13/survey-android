@@ -15,8 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeNoActionbar"
         android:usesCleartextTraffic="true"
-        tools:replace="android:allowBackup"
-        tools:overrideLibrary="androidx.legacy.v4">
+        tools:overrideLibrary="androidx.legacy.v4"
+        tools:replace="android:allowBackup">
 
         <activity
             android:name=".activities.ActivitySplash"
@@ -80,6 +80,21 @@
 
         <activity
             android:name=".activities.vendor_flow.ActivityVendorMain"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".activities.vendor_flow.ActivityVendorAddSurveyQuestions"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".activities.vendor_flow.ActivityVendorDraftSurveys"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".activities.vendor_flow.ActivityVendorReceivedResponses"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
 

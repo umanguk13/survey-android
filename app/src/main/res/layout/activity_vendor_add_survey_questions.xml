@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/flag_us_virgin_islands"
+                    tools:ignore="ContentDescription" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/activity_login_email_email_textview_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@color/color_black"
+                        android:gravity="center"
+                        android:padding="@dimen/_8sdp"
+                        android:text="@string/text_create_survey_add_survey_image"
+                        android:textColor="@color/color_white"
+                        android:textSize="@dimen/_13sdp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="center"
+                        android:text="OR"
+                        android:textColor="@color/color_black"
+                        android:textSize="@dimen/_15sdp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/activity_login_email_email_input_layout_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:hint="@string/text_create_survey_add_survey_promo_text"
+                android:textColorHint="@color/color_grey"
+                app:boxBackgroundColor="@android:color/transparent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/activity_login_email_email_edittext_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:inputType="textPassword"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:textColor="@color/color_black" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/activity_login_email_textview_forgot_password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@color/color_light_grey"
+                android:gravity="center"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+                android:text="@string/text_create_survey_here_you_can_add_upto_7_questions"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/activity_vendor_add_survey_questions_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_8sdp">
+
+                <TextView
+                    android:id="@+id/activity_vendor_add_survey_question_textview_post_later"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:background="@color/color_black"
+                    android:gravity="center"
+                    android:padding="@dimen/_8sdp"
+                    android:text="@string/text_add_questions_post_later"
+                    android:textColor="@color/color_white"
+                    android:textSize="@dimen/_13sdp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:background="@color/color_black"
+                    android:gravity="center"
+                    android:padding="@dimen/_8sdp"
+                    android:text="@string/text_add_questions_post_now"
+                    android:textColor="@color/color_white"
+                    android:textSize="@dimen/_13sdp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

@@ -122,6 +122,23 @@
     <string name="text_vendor_dashboard_current_surveys">Current Surveys</string>
     <string name="text_vendor_dashboard_previous_surveys">Previous Surveys</string>
 
+    <!--Menu Screen-->
+    <string name="text_vendor_menu_menu">MENU</string>
+    <string name="text_vendor_menu_saved_surveys">Saved Surveys</string>
+    <string name="text_vendor_menu_posted_surveys">Posted Surveys</string>
+    <string name="text_vendor_menu_received_survey_response">Received Survey Responses</string>
+    <string name="text_vendor_menu_draw_a_raffle">Draw a Raffle</string>
+    <string name="text_vendor_menu_winners">Winners</string>
+    <string name="text_vendor_menu_reports">Reports</string>
+    <string name="text_vendor_menu_purchase_a_plan">Purchase a Plan</string>
+    <string name="text_vendor_menu_about">ABOUT</string>
+    <string name="text_vendor_menu_about_survey_raffle">About Survey Raffle</string>
+    <string name="text_vendor_menu_give_feedback">Give Feedback</string>
+    <string name="text_vendor_menu_advertisement_with_us">Advertisement with us</string>
+    <string name="text_vendor_menu_terms_of_use">Terms of Use</string>
+    <string name="text_vendor_menu_privacy_policy">Privacy Policy</string>
+    <string name="text_vendor_menu_logout">Log out</string>
+
     <string name="text_create_survey_category">Category</string>
     <string name="text_create_survey_title">Survey Title</string>
     <string name="text_create_survey_title_hint">Enter Title (Example: Pizza Store)</string>
@@ -149,5 +166,23 @@
 
     <string name="text_create_survey_group">Group</string>
     <string name="text_create_survey_next">NEXT</string>
+
+    <string name="text_create_survey_add_survey_image">ADD SURVEY IMAGE</string>
+    <string name="text_create_survey_add_survey_promo_text">Add Survey Promotion Text</string>
+    <string name="text_create_survey_here_you_can_add_upto_7_questions">Here you can add up to 7 Questions only!</string>
+
+    <string name="text_add_questions_title">%1$s Survey Question</string>
+    <string name="text_add_questions_survey_question_hint">Enter Survey Question</string>
+    <string name="text_add_questions_choose_answer_option">Choose Answer Options</string>
+    <string name="text_add_questions_multi_choice">Multi Choice</string>
+    <string name="text_add_questions_single_choice">Single Choice</string>
+    <string name="text_add_questions_choice_a">Choice A</string>
+    <string name="text_add_questions_choice_b">Choice B</string>
+    <string name="text_add_questions_choice_c">Choice C</string>
+    <string name="text_add_questions_choice_d">Choice D</string>
+    <string name="text_add_questions_enter_text_hint">Enter Text</string>
+    <string name="text_add_questions_user_comments">User Comments (Optional)</string>
+    <string name="text_add_questions_post_later">POST LATER</string>
+    <string name="text_add_questions_post_now">POST NOW</string>
 
 </resources>
