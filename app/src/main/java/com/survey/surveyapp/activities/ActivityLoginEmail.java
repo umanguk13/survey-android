@@ -1,11 +1,15 @@
 package com.survey.surveyapp.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.survey.surveyapp.BaseActivity;
 import com.survey.surveyapp.R;
+import com.survey.surveyapp.activities.user_flow.ActivityUserMain;
+import com.survey.surveyapp.activities.vendor_flow.ActivityVendorMain;
 import com.survey.surveyapp.databinding.ActivityLoginEmailBinding;
+import com.survey.surveyapp.helper.TagValues;
 import com.survey.surveyapp.viewmodels.LoginEmailViewModel;
 
 public class ActivityLoginEmail extends BaseActivity {
@@ -30,13 +34,21 @@ public class ActivityLoginEmail extends BaseActivity {
         mActivityLoginEmailBinding.activityLoginEmailEmailTextviewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isValid()) {
-                    if (mUtility.haveInternet()) {
-                        mLoginEmailViewModel.doNormalLogin();
-                    } else {
-                        mUtility.errorDialog(getResources().getString(R.string.internet_error));
-                    }
+                if (mUtility.getAppPrefString(TagValues.PREF_SELECTED_ROLE_ID).equalsIgnoreCase(TagValues.USER_ROLE_ID)) {
+                    Intent mIntentUser = new Intent(ActivityLoginEmail.this, ActivityUserMain.class);
+                    startActivity(mIntentUser);
+                } else if (mUtility.getAppPrefString(TagValues.PREF_SELECTED_ROLE_ID).equalsIgnoreCase(TagValues.VENDOR_ROLE_ID)) {
+                    Intent mIntentVendor = new Intent(ActivityLoginEmail.this, ActivityVendorMain.class);
+                    startActivity(mIntentVendor);
                 }
+                
+//                if (isValid()) {
+//                    if (mUtility.haveInternet()) {
+//                        mLoginEmailViewModel.doNormalLogin();
+//                    } else {
+//                        mUtility.errorDialog(getResources().getString(R.string.internet_error));
+//                    }
+//                }
             }
         });
 

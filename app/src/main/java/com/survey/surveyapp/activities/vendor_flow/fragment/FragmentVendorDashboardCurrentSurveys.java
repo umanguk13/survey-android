@@ -1,6 +1,7 @@
 package com.survey.surveyapp.activities.vendor_flow.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.survey.surveyapp.R;
+import com.survey.surveyapp.activities.vendor_flow.ActivityVendorMain;
+import com.survey.surveyapp.activities.vendor_flow.ActivityVendorSurveyDetail;
 import com.survey.surveyapp.helper.DividerItemDecorationNavigation;
 
 import butterknife.BindView;
@@ -23,15 +26,18 @@ public class FragmentVendorDashboardCurrentSurveys extends Fragment {
     private View createView;
     boolean _isLoaded = false;
 
+    ActivityVendorMain mActivityVendorMain;
+
     @BindView(R.id.fragment_vendor_dashboard_current_surveys_recyclerview)
     RecyclerView mRecyclerViewHotSurveys;
 
     //Adapter
-    CurrentSurveysAdapter mCurrentSurveysAdapter;
+    private CurrentSurveysAdapter mCurrentSurveysAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mActivityVendorMain = (ActivityVendorMain) getActivity();
     }
 
     @Nullable
@@ -83,7 +89,13 @@ public class FragmentVendorDashboardCurrentSurveys extends Fragment {
         @SuppressLint("CheckResult")
         @Override
         public void onBindViewHolder(@NonNull final CurrentSurveysAdapter.ViewHolder holder, @SuppressLint("RecyclerView") final int position) {
-
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent mIntentSurveyDetail = new Intent(mActivityVendorMain, ActivityVendorSurveyDetail.class);
+                    startActivity(mIntentSurveyDetail);
+                }
+            });
         }
 
         @Override

@@ -25,8 +25,8 @@ public class LoginEmailViewModel extends ViewModel {
         mUtility = new Utility(this.mActivityLoginEmail);
         mMyService = myService;
 
-        mStringEmail.setValue("darshan.popat");
-        mStringPassword.setValue("123456");
+//        mStringEmail.setValue("darshan.popat");
+//        mStringPassword.setValue("123456");
     }
 
     public void doNormalLogin() {

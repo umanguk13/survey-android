@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.survey.surveyapp.R;
+import com.survey.surveyapp.activities.ActivityLogin;
+import com.survey.surveyapp.activities.ActivitySelectFlow;
 import com.survey.surveyapp.activities.vendor_flow.ActivityVendorDraftSurveys;
 import com.survey.surveyapp.activities.vendor_flow.ActivityVendorMain;
 import com.survey.surveyapp.activities.vendor_flow.ActivityVendorReceivedResponses;
@@ -127,6 +129,15 @@ public class FragmentVendorMenu extends Fragment {
             @Override
             public void onClick(View v) {
                 Toast.makeText(mActivityVendorMain, "Coming Soon!!!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mTextViewLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntentLogout = new Intent(mActivityVendorMain, ActivitySelectFlow.class);
+                mActivityVendorMain.finishAffinity();
+                startActivity(mIntentLogout);
             }
         });
 

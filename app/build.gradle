@@ -65,7 +65,7 @@ dependencies {
     implementation 'com.jakewharton.rxbinding2:rxbinding:2.1.1'
 
     //Dagger
-    implementation 'com.google.dagger:dagger:2.22'
+    implementation 'com.google.dagger:dagger:2.24'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.21'
     implementation 'com.google.dagger:dagger-android:2.21'
 
@@ -75,7 +75,7 @@ dependencies {
 
     //Lottie Animation
     implementation 'com.airbnb.android:lottie:2.8.0'
-    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:3.0.3'
+    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
     implementation 'de.hdodenhof:circleimageview:3.0.0'
 
     //Butter-knife
@@ -94,9 +94,9 @@ dependencies {
     implementation 'com.twitter.sdk.android:twitter-core:3.3.0'
 
     //Firebase
-    implementation 'com.google.firebase:firebase-core:17.0.0'
-    implementation 'com.google.firebase:firebase-analytics:17.2.0'
-    implementation 'com.google.firebase:firebase-auth:18.0.0'
+    implementation 'com.google.firebase:firebase-core:17.2.1'
+    implementation 'com.google.firebase:firebase-analytics:17.2.1'
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
 
     //CountryCodePicker
     implementation 'com.hbb20:ccp:2.3.0'
@@ -110,7 +110,9 @@ dependencies {
     //Butter-knife
     implementation 'com.jakewharton:butterknife:10.2.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
-//    implementation project(path: ':linkedin-sdk')
+
+    //Graphs SDK
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
 }
 apply plugin: 'com.google.gms.google-services'
