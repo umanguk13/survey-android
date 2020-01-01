@@ -69,7 +69,7 @@ public class CreateAccountViewModel extends ViewModel {
             }
 
             @Override
-            public void onError(Exception networkError) {
+            public void onError(Throwable networkError) {
                 mUtility.hideAnimatedProgress();
                 networkError.printStackTrace();
                 mUtility.errorDialog(mActivityCreateAccount.getString(R.string.something_went_wrong_fix_soon));

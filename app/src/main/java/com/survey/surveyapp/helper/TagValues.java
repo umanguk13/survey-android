@@ -30,4 +30,14 @@ public class TagValues {
     public static final String URL_NORMAL_LOGIN = "mobile_login";
     public static final String URL_SOCIAL_LOGIN = "social_login";
 
+    //User Information
+    public static final String PREF_USER_FIRST_NAME = "pref_user_first_name";
+    public static final String PREF_USER_LAST_NAME = "pref_user_last_name";
+    public static final String PREF_USER_ID = "pref_user_id";
+    public static final String PREF_USER_ROLE_ID = "pref_user_role_id";
+    public static final String PREF_USER_PROFESSION_ID = "pref_user_profession_id";
+    public static final String PREF_USER_EMAIL = "pref_user_email";
+    public static final String PREF_USER_PHOME = "pref_user_phome";
+    public static final String PREF_USER_PROFILE_PIC = "pref_user_profile_pic";
+
 }

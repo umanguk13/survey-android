@@ -10,6 +10,7 @@ import com.survey.surveyapp.R;
 import com.survey.surveyapp.activities.user_flow.ActivityUserMain;
 import com.survey.surveyapp.activities.vendor_flow.ActivityVendorMain;
 import com.survey.surveyapp.databinding.ActivitySplashBinding;
+import com.survey.surveyapp.helper.TagValues;
 
 public class ActivitySplash extends BaseActivity {
 
@@ -27,9 +28,23 @@ public class ActivitySplash extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent mIntentLogin = new Intent(ActivitySplash.this, ActivityVendorMain.class);
-                finishAffinity();
-                startActivity(mIntentLogin);
+
+                if (mUtility.getAppPrefString(TagValues.PREF_USER_ID).equalsIgnoreCase("")) {
+                    Intent mIntentLogin = new Intent(ActivitySplash.this, ActivitySelectFlow.class);
+                    finishAffinity();
+                    startActivity(mIntentLogin);
+                } else {
+                    if (mUtility.getAppPrefString(TagValues.PREF_USER_ROLE_ID).equalsIgnoreCase(TagValues.USER_ROLE_ID)) {
+                        Intent mIntentLogin = new Intent(ActivitySplash.this, ActivityUserMain.class);
+                        finishAffinity();
+                        startActivity(mIntentLogin);
+                    } else {
+                        Intent mIntentLogin = new Intent(ActivitySplash.this, ActivityVendorMain.class);
+                        finishAffinity();
+                        startActivity(mIntentLogin);
+                    }
+                }
+
             }
         }, 2000);
 

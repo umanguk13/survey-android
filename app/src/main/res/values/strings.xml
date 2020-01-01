@@ -138,6 +138,9 @@
     <string name="text_vendor_menu_terms_of_use">Terms of Use</string>
     <string name="text_vendor_menu_privacy_policy">Privacy Policy</string>
     <string name="text_vendor_menu_logout">Log out</string>
+    <string name="text_vendor_menu_logout_msg">Are you sure want to logout?</string>
+    <string name="text_vendor_menu_logout_yes">Yes</string>
+    <string name="text_vendor_menu_logout_cancel">Cancel</string>
 
     <string name="text_create_survey_category">Category</string>
     <string name="text_create_survey_title">Survey Title</string>

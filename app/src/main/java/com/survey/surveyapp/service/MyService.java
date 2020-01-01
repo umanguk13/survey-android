@@ -47,7 +47,7 @@ public class MyService {
 
                     @Override
                     public void onError(Throwable e) {
-                        mServiceCallback.onError(new Exception(e));
+                        mServiceCallback.onError(e);
                     }
 
                     @Override
@@ -113,7 +113,7 @@ public class MyService {
 
                     @Override
                     public void onError(Throwable e) {
-                        mServiceCallback.onError(new Exception(e));
+                        mServiceCallback.onError(e);
                     }
 
                     @Override
@@ -126,7 +126,7 @@ public class MyService {
     public interface ServiceCallback<T> {
         void onSuccess(T data);
 
-        void onError(Exception networkError);
+        void onError(Throwable networkError);
     }
 
 }

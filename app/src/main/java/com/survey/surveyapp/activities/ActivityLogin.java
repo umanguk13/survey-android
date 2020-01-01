@@ -32,6 +32,8 @@ import com.google.android.gms.tasks.Task;
 import com.survey.surveyapp.BaseActivity;
 import com.survey.surveyapp.R;
 import com.survey.surveyapp.databinding.ActivityLoginBinding;
+import com.survey.surveyapp.helper.TagValues;
+import com.survey.surveyapp.viewmodels.LoginViewModel;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterException;
@@ -49,6 +51,8 @@ public class ActivityLogin extends BaseActivity {
     private static final String CLASS_NAME = ActivityLogin.class.getSimpleName();
 
     ActivityLoginBinding mActivityLoginBinding;
+
+    LoginViewModel mLoginViewModel;
 
     //Google Plus Signin
     GoogleSignInClient mGoogleSignInClient;
@@ -92,6 +96,8 @@ public class ActivityLogin extends BaseActivity {
         // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, mGoogleSignInOptions);
         //endregion
+
+        mLoginViewModel = new LoginViewModel(ActivityLogin.this, mMyService);
 
         mActivityLoginBinding.activityLoginImageviewGooglePlus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -213,6 +219,8 @@ public class ActivityLogin extends BaseActivity {
                                         mStringSocialBirthdate = object.optString("birthday");
                                         mStringSocialGender = object.optString("gender");
 
+                                        mLoginViewModel.doSocialLogin(mStringSocialFirstName, mStringSocialLastName, mStringFacebookId, TagValues.SOCIAL_FACEBOOK_ID, mStringSocialEmail, mUtility.getAppPrefString(TagValues.PREF_SELECTED_ROLE_ID), "");
+
                                         //TODO CALL SOCIAL LOGIN WEB-SERVICE
 
                                         //region GRAPH REQUEST FOR USER PHOTOS
@@ -249,6 +257,8 @@ public class ActivityLogin extends BaseActivity {
                         exception.printStackTrace();
                     }
                 });
+
+        GenerateKeyHash();
 
     }
 
@@ -301,6 +311,19 @@ public class ActivityLogin extends BaseActivity {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             // Signed in successfully, show authenticated UI.
             Toast.makeText(mContext, "Sign In Successful!", Toast.LENGTH_SHORT).show();
+
+            mStringSocialFirstName = "";
+            mStringSocialLastName = "-";
+
+            if (account.getDisplayName().contains(" ")) {
+                String userNames[] = account.getDisplayName().split(" ");
+                mStringSocialFirstName = userNames[0];
+                mStringSocialLastName = userNames[1];
+            } else {
+                mStringSocialFirstName = account.getDisplayName();
+            }
+
+            mLoginViewModel.doSocialLogin(mStringSocialFirstName, mStringSocialLastName, account.getId(), TagValues.SOCIAL_GOOGLE_PLUS_ID, account.getEmail(), mUtility.getAppPrefString(TagValues.PREF_SELECTED_ROLE_ID), "");
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
@@ -352,6 +375,19 @@ public class ActivityLogin extends BaseActivity {
                 ShowLog(CLASS_NAME, "Twitter ID", Long.toString(twitterSession.getUserId()));
                 ShowLog(CLASS_NAME, "Twitter Name", twitterSession.getUserName());
                 ShowLog(CLASS_NAME, "Twitter Email", result.data);
+
+                mStringSocialFirstName = "";
+                mStringSocialLastName = "-";
+
+                if (twitterSession.getUserName().contains(" ")) {
+                    String userNames[] = twitterSession.getUserName().split(" ");
+                    mStringSocialFirstName = userNames[0];
+                    mStringSocialLastName = userNames[1];
+                } else {
+                    mStringSocialFirstName = twitterSession.getUserName();
+                }
+
+                mLoginViewModel.doSocialLogin(result.data, "", Long.toString(twitterSession.getUserId()), TagValues.SOCIAL_TWITTER_ID, result.data, mUtility.getAppPrefString(TagValues.PREF_SELECTED_ROLE_ID), "");
             }
 
             @Override
