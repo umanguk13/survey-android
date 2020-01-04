@@ -35,6 +35,8 @@
 
     <!--Create Account Screen-->
     <string name="text_create_account_sign_up">Hi There!\nSign up for FREE account</string>
+    <string name="text_create_account_choose_your_firstname">Enter your firstname</string>
+    <string name="text_create_account_choose_your_lastname">Enter your lastname</string>
     <string name="text_create_account_choose_your_username">Choose your Username</string>
     <string name="text_create_account_enter_your_email">Enter your Email</string>
     <string name="text_create_account_choose_a_password">Choose a Password</string>

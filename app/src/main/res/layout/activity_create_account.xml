@@ -81,7 +81,7 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:hint="@string/text_create_account_choose_your_username"
+                    android:hint="@string/text_create_account_choose_your_firstname"
                     android:textColorHint="@color/color_black"
                     app:boxBackgroundColor="@android:color/transparent">
 
@@ -105,7 +105,7 @@
                     android:layout_marginStart="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:hint="@string/text_create_account_choose_your_username"
+                    android:hint="@string/text_create_account_choose_your_lastname"
                     android:textColorHint="@color/color_black"
                     app:boxBackgroundColor="@android:color/transparent">
 
@@ -217,7 +217,7 @@
                         android:textColor="@color/color_black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-                
+
                 <AutoCompleteTextView
                     android:id="@+id/activity_login_email_email_edittext_profession"
                     android:layout_width="match_parent"

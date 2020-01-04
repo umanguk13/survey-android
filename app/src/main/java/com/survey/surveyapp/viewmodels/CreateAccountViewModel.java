@@ -304,9 +304,6 @@ public class CreateAccountViewModel extends ViewModel {
                     if (data.getUser_details().getId() != null)
                         mUtility.writeSharedPreferencesString(TagValues.PREF_USER_ID, data.getUser_details().getId());
 
-                    if (data.getUser_details().getAccess_token() != null)
-                        mUtility.writeSharedPreferencesString(TagValues.PREF_USER_ACCESS_TOKEN, data.getUser_details().getAccess_token());
-
                     if (data.getUser_details().getRole_id() != null) {
                         if (data.getUser_details().getRole_id().equalsIgnoreCase(TagValues.USER_ROLE_ID)) {
                             Intent mIntentLogin = new Intent(mActivityCreateAccount, ActivityUserMain.class);
