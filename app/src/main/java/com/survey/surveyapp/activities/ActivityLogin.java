@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.lifecycle.Observer;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -44,6 +45,7 @@ import org.json.JSONObject;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ActivityLogin extends BaseActivity {
@@ -97,7 +99,7 @@ public class ActivityLogin extends BaseActivity {
         mGoogleSignInClient = GoogleSignIn.getClient(this, mGoogleSignInOptions);
         //endregion
 
-        mLoginViewModel = new LoginViewModel(ActivityLogin.this, mMyService);
+        mLoginViewModel = new LoginViewModel((BaseActivity) mContext, mMyService);
 
         mActivityLoginBinding.activityLoginImageviewGooglePlus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -260,6 +262,9 @@ public class ActivityLogin extends BaseActivity {
 
         GenerateKeyHash();
 
+
+
+
     }
 
 //    public void loginHandle() {
@@ -281,6 +286,7 @@ public class ActivityLogin extends BaseActivity {
 //    private static Scope buildScope() {
 //        return Scope.build(Scope.R_BASICPROFILE, Scope.R_EMAILADDRESS);
 //    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -387,7 +393,7 @@ public class ActivityLogin extends BaseActivity {
                     mStringSocialFirstName = twitterSession.getUserName();
                 }
 
-                mLoginViewModel.doSocialLogin(result.data, "", Long.toString(twitterSession.getUserId()), TagValues.SOCIAL_TWITTER_ID, result.data, mUtility.getAppPrefString(TagValues.PREF_SELECTED_ROLE_ID), "");
+                mLoginViewModel.doSocialLogin(mStringSocialFirstName, mStringSocialLastName, Long.toString(twitterSession.getUserId()), TagValues.SOCIAL_TWITTER_ID, result.data, mUtility.getAppPrefString(TagValues.PREF_SELECTED_ROLE_ID), "");
             }
 
             @Override

@@ -1,6 +1,7 @@
 package com.survey.surveyapp.service;
 
 import com.survey.surveyapp.helper.TagValues;
+import com.survey.surveyapp.vo.VoResponceCheckUserExist;
 import com.survey.surveyapp.vo.VoResponseLogin;
 import com.survey.surveyapp.vo.VoResponseRegister;
 import com.survey.surveyapp.vo.VoResponseSocialLogin;
@@ -24,5 +25,13 @@ public interface API {
     @Headers("Content-Type: application/json")
     @POST(TagValues.URL_SOCIAL_LOGIN)
     Observable<VoResponseSocialLogin> userSocialLogin(@Body RequestBody mRequestBody);
+
+    @Headers("Content-Type: application/json")
+    @POST(TagValues.URL_CHECK_USERNAME_EXIST)
+    Observable<VoResponceCheckUserExist> checkUserExist(@Body RequestBody mRequestBody);
+
+    @Headers("Content-Type: application/json")
+    @POST(TagValues.URL_CHECK_USER_EXIST)
+    Observable<VoResponceCheckUserExist> verifuUserPhome(@Body RequestBody mRequestBody);
 
 }

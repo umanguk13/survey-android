@@ -1,5 +1,6 @@
 package com.survey.surveyapp.service;
 
+import com.survey.surveyapp.vo.VoResponceCheckUserExist;
 import com.survey.surveyapp.vo.VoResponseLogin;
 import com.survey.surveyapp.vo.VoResponseRegister;
 import com.survey.surveyapp.vo.VoResponseSocialLogin;
@@ -42,6 +43,72 @@ public class MyService {
 
                     @Override
                     public void onNext(VoResponseRegister voResponseRegister) {
+                        mServiceCallback.onSuccess(voResponseRegister);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        mServiceCallback.onError(e);
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    public void checkUserExist(JSONObject mJsonObjectData, final ServiceCallback<VoResponceCheckUserExist> mServiceCallback) {
+        RequestBody mRequestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), mJsonObjectData.toString());
+
+        mApiService.checkUserExist(mRequestBody)
+                .timeout(30, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .flatMap(data -> Observable.just(data))
+                .filter(data -> data != null)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<VoResponceCheckUserExist>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(VoResponceCheckUserExist voResponseRegister) {
+                        mServiceCallback.onSuccess(voResponseRegister);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        mServiceCallback.onError(e);
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    public void verifyUserPhoem(JSONObject mJsonObjectData, final ServiceCallback<VoResponceCheckUserExist> mServiceCallback) {
+        RequestBody mRequestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), mJsonObjectData.toString());
+
+        mApiService.verifuUserPhome(mRequestBody)
+                .timeout(30, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .flatMap(data -> Observable.just(data))
+                .filter(data -> data != null)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<VoResponceCheckUserExist>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(VoResponceCheckUserExist voResponseRegister) {
                         mServiceCallback.onSuccess(voResponseRegister);
                     }
 

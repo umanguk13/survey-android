@@ -29,6 +29,8 @@ public class TagValues {
     public static final String URL_REGISTER = "register";
     public static final String URL_NORMAL_LOGIN = "mobile_login";
     public static final String URL_SOCIAL_LOGIN = "social_login";
+    public static final String URL_CHECK_USERNAME_EXIST = "check_username_exist";
+    public static final String URL_CHECK_USER_EXIST = "check_user_exist";
 
     //User Information
     public static final String PREF_USER_FIRST_NAME = "pref_user_first_name";

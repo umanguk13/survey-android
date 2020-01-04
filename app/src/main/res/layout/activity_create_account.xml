@@ -75,6 +75,54 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/activity_login_email_email_input_layout_first_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:hint="@string/text_create_account_choose_your_username"
+                    android:textColorHint="@color/color_black"
+                    app:boxBackgroundColor="@android:color/transparent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/activity_login_email_email_edittext_first_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:text='@={createAccountViewModel.mStringFirstName}'
+                        android:textColor="@color/color_black" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/activity_login_email_email_input_layout_last_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:hint="@string/text_create_account_choose_your_username"
+                    android:textColorHint="@color/color_black"
+                    app:boxBackgroundColor="@android:color/transparent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/activity_login_email_email_edittext_last_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:inputType="text"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:text='@={createAccountViewModel.mStringLastName}'
+                        android:textColor="@color/color_black" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/activity_login_email_email_input_layout_enter_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -260,7 +308,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/activity_login_email_email_textview_login"
+                android:id="@+id/activity_create_text_create_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/activity_create_account_linear_user_data"
@@ -278,7 +326,7 @@
                 android:id="@+id/activity_create_account_linear_or"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/activity_login_email_email_textview_login"
+                android:layout_below="@+id/activity_create_text_create_account"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
@@ -352,7 +400,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/activity_login_email_textview_login_with"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_10sdp">
+                android:layout_marginBottom="@dimen/_16sdp">
 
                 <ImageView
                     android:id="@+id/activity_login_email_imageview_facebook"

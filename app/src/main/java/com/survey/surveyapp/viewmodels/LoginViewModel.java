@@ -2,8 +2,11 @@ package com.survey.surveyapp.viewmodels;
 
 import android.content.Intent;
 
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.survey.surveyapp.BaseActivity;
 import com.survey.surveyapp.R;
 import com.survey.surveyapp.activities.ActivityLogin;
 import com.survey.surveyapp.activities.user_flow.ActivityUserMain;
@@ -19,16 +22,19 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
+import java.util.ArrayList;
 
 import retrofit2.HttpException;
 
 public class LoginViewModel extends ViewModel {
 
-    private ActivityLogin mActivityLogin;
+    private BaseActivity mActivityLogin;
     private MyService mMyService;
     private Utility mUtility;
 
-    public LoginViewModel(ActivityLogin mActivityLogin, MyService myService) {
+    public LiveData<ArrayList<String>> getData = new MutableLiveData<>();
+
+    public LoginViewModel(BaseActivity mActivityLogin, MyService myService) {
         this.mActivityLogin = mActivityLogin;
         mUtility = new Utility(this.mActivityLogin);
         mMyService = myService;

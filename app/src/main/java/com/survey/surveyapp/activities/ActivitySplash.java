@@ -34,7 +34,7 @@ public class ActivitySplash extends BaseActivity {
                     finishAffinity();
                     startActivity(mIntentLogin);
                 } else {
-                    if (mUtility.getAppPrefString(TagValues.PREF_USER_ROLE_ID).equalsIgnoreCase(TagValues.USER_ROLE_ID)) {
+                    if (mUtility.getAppPrefString(TagValues.PREF_SELECTED_ROLE_ID).equalsIgnoreCase(TagValues.USER_ROLE_ID)) {
                         Intent mIntentLogin = new Intent(ActivitySplash.this, ActivityUserMain.class);
                         finishAffinity();
                         startActivity(mIntentLogin);
