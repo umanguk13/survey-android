@@ -114,5 +114,8 @@ dependencies {
     //Graphs SDK
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 
+    //DatePicker Library
+    implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
+
 }
 apply plugin: 'com.google.gms.google-services'

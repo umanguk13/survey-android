@@ -113,7 +113,7 @@ public class ActivityCreateAccount extends BaseActivity {
             assert mLayoutInflater != null;
             @SuppressLint("ViewHolder") View rowView = mLayoutInflater.inflate(R.layout.raw_spinner_item, parent, false);
 
-            TextView mTextViewItem = rowView.findViewById(R.id.raw_spinner_item_textview);
+            TextView mTextViewItem = rowView.findViewById(R.id.raw_spinner_item_end_gravity_textview);
             mTextViewItem.setText(mStringItem[position]);
 
             return rowView;

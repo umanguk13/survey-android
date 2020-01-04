@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="vendorMainViewModel"
+            type="com.survey.surveyapp.viewmodels.VendorMainViewModel" />
     </data>
 
     <RelativeLayout

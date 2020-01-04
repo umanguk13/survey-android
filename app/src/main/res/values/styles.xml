@@ -30,6 +30,10 @@
         <item name="android:windowDisablePreview">true</item>
     </style>
 
+    <style name="DateStyle" parent="Theme.MaterialComponents.Dialog">
+
+    </style>
+
     <style name="ToolbarTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:background">@color/color_blue</item>
         <item name="android:textColorPrimary">@color/color_white</item>

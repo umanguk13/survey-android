@@ -169,7 +169,7 @@
                         android:textColor="@color/color_black" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
+                
                 <AutoCompleteTextView
                     android:id="@+id/activity_login_email_email_edittext_profession"
                     android:layout_width="match_parent"

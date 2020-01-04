@@ -17,7 +17,7 @@
         android:textSize="@dimen/_15sdp" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fragment_create_survey_input_layout_choose_survey_title"
+        android:id="@+id/raw_vendor_add_survey_question_item_input_layout_choose_survey_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
@@ -28,10 +28,11 @@
         app:counterMaxLength="200">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/activity_login_email_email_edittext_choose_survey_title"
+            android:id="@+id/raw_vendor_add_survey_question_item_edittext_choose_survey_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
+            android:imeOptions="actionDone"
             android:inputType="text"
             android:lines="1"
             android:maxLines="1"
@@ -48,11 +49,13 @@
         android:textSize="@dimen/_15sdp" />
 
     <RadioGroup
+        android:id="@+id/raw_vendor_add_survey_question_item_radiogroup_question_type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <RadioButton
+            android:id="@+id/raw_vendor_add_survey_question_item_radiobutton_multi_choice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -61,6 +64,7 @@
             android:textSize="@dimen/_13sdp" />
 
         <RadioButton
+            android:id="@+id/raw_vendor_add_survey_question_item_radiobutton_single_choice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -79,10 +83,12 @@
         android:textSize="@dimen/_15sdp" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/raw_vendor_add_survey_question_item_edittext_choice_a"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:hint="@string/text_add_questions_enter_text_hint"
+        android:imeOptions="actionNext"
         android:inputType="text"
         android:lines="1"
         android:maxLines="1"
@@ -97,10 +103,12 @@
         android:textSize="@dimen/_15sdp" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/raw_vendor_add_survey_question_item_edittext_choice_b"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:hint="@string/text_add_questions_enter_text_hint"
+        android:imeOptions="actionNext"
         android:inputType="text"
         android:lines="1"
         android:maxLines="1"
@@ -115,10 +123,12 @@
         android:textSize="@dimen/_15sdp" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/raw_vendor_add_survey_question_item_edittext_choice_c"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:hint="@string/text_add_questions_enter_text_hint"
+        android:imeOptions="actionNext"
         android:inputType="text"
         android:lines="1"
         android:maxLines="1"
@@ -133,16 +143,19 @@
         android:textSize="@dimen/_15sdp" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/raw_vendor_add_survey_question_item_edittext_choice_d"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:hint="@string/text_add_questions_enter_text_hint"
+        android:imeOptions="actionDone"
         android:inputType="text"
         android:lines="1"
         android:maxLines="1"
         android:textColor="@color/color_black" />
 
     <androidx.appcompat.widget.AppCompatCheckBox
+        android:id="@+id/raw_vendor_add_survey_question_item_checkbox_comments"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
@@ -152,10 +165,12 @@
         android:textSize="@dimen/_13sdp" />
 
     <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/raw_vendor_add_survey_question_item_edittext_user_comments"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:hint="@string/text_add_questions_enter_text_hint"
+        android:imeOptions="actionDone"
         android:inputType="text"
         android:lines="1"
         android:maxLines="1"

@@ -6,15 +6,18 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.lifecycle.Observer;
 import androidx.viewpager.widget.ViewPager;
 
 import com.survey.surveyapp.R;
 import com.survey.surveyapp.activities.user_flow.UserBaseActivity;
-import com.survey.surveyapp.activities.vendor_flow.fragment.FragmentVendorDashboardCreateNewSurvey;
 import com.survey.surveyapp.activities.vendor_flow.fragment.FragmentVendorDashboard;
+import com.survey.surveyapp.activities.vendor_flow.fragment.FragmentVendorDashboardCreateNewSurvey;
 import com.survey.surveyapp.activities.vendor_flow.fragment.FragmentVendorMenu;
 import com.survey.surveyapp.activities.vendor_flow.fragment.FragmentVendorProfile;
 import com.survey.surveyapp.databinding.ActivityVendorMainBinding;
+import com.survey.surveyapp.viewmodels.VendorMainViewModel;
+import com.survey.surveyapp.vo.VoResponseCreateNewSurvey;
 
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
@@ -22,14 +25,34 @@ public class ActivityVendorMain extends UserBaseActivity {
 
     ActivityVendorMainBinding mActivityVendorMainBinding;
 
+    public VendorMainViewModel mVendorMainViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         mActivityVendorMainBinding = (ActivityVendorMainBinding) putContentView(R.layout.activity_vendor_main);
 
+        mVendorMainViewModel = new VendorMainViewModel(this, mMyService);
+        mActivityVendorMainBinding.setVendorMainViewModel(mVendorMainViewModel);
+        mActivityVendorMainBinding.setLifecycleOwner(this);
+
         initToolbar();
         initViewPager();
+
+        mVendorMainViewModel.mLiveDataCreateNewSurvey.observe(this, new Observer<VoResponseCreateNewSurvey>() {
+            @Override
+            public void onChanged(VoResponseCreateNewSurvey voResponseCreateNewSurvey) {
+                if (voResponseCreateNewSurvey != null) {
+                    Fragment mFragmentCurrent = getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.activity_vendor_main_viewpager + ":" +
+                            mActivityVendorMainBinding.activityVendorMainViewpager.getCurrentItem());
+
+                    if (mFragmentCurrent instanceof FragmentVendorDashboardCreateNewSurvey) {
+                        ((FragmentVendorDashboardCreateNewSurvey) mFragmentCurrent).gotServiceResponse(voResponseCreateNewSurvey);
+                    }
+                }
+            }
+        });
 
     }
 

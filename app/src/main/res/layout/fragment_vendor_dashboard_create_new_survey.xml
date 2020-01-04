@@ -26,6 +26,7 @@
                 android:textSize="@dimen/_14sdp" />
 
             <Spinner
+                android:id="@+id/fragment_vendor_dashboard_create_new_spinner_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -37,7 +38,6 @@
         </LinearLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/fragment_create_survey_input_layout_choose_survey_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_10sdp"
@@ -46,7 +46,7 @@
             app:boxBackgroundColor="@android:color/transparent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/activity_login_email_email_edittext_choose_survey_title"
+                android:id="@+id/fragment_vendor_dashboard_create_survey_edittext_choose_survey_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -67,7 +67,7 @@
             app:boxBackgroundColor="@android:color/transparent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/activity_login_email_email_edittext_posted_by"
+                android:id="@+id/fragment_vendor_dashboard_create_survey_edittext_posted_by"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
@@ -90,15 +90,27 @@
                 android:orientation="vertical">
 
                 <RadioButton
+                    android:id="@+id/fragment_vendor_dashboard_create_new_radiobutton_required_responses"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/text_create_survey_required_responses" />
 
-                <TextView
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/fragment_vendor_dashboard_create_new_edittext_required_responses"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:digits="0123456789"
+                    android:ellipsize="end"
+                    android:enabled="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
                     android:gravity="center"
-                    android:text="@string/text_create_survey_required_responses_hint"
+                    android:hint="@string/text_create_survey_required_responses_hint"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:text=""
                     android:textColor="@color/color_black"
                     android:textSize="@dimen/_12sdp" />
 
@@ -156,7 +168,8 @@
                 android:layout_weight="1"
                 android:orientation="vertical">
 
-                <TextView
+                <RadioButton
+                    android:id="@+id/fragment_vendor_dashboard_create_new_radiobutton_date_range"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/text_create_survey_start_date"
@@ -164,11 +177,20 @@
                     android:textSize="@dimen/_14sdp" />
 
                 <EditText
+                    android:id="@+id/fragment_vendor_dashboard_create_new_edittext_start_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:ellipsize="end"
+                    android:enabled="false"
                     android:focusable="false"
                     android:focusableInTouchMode="false"
-                    android:hint="DD/MM/YYYY" />
+                    android:hint="DD/MM/YYYY"
+                    android:importantForAutofill="no"
+                    android:inputType="text|date"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:textColor="@color/color_black" />
 
             </LinearLayout>
 
@@ -181,16 +203,26 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:padding="@dimen/_9sdp"
                     android:text="@string/text_create_survey_end_date"
                     android:textColor="@color/color_black"
                     android:textSize="@dimen/_14sdp" />
 
                 <EditText
+                    android:id="@+id/fragment_vendor_dashboard_create_new_edittext_end_date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:ellipsize="end"
+                    android:enabled="false"
                     android:focusable="false"
                     android:focusableInTouchMode="false"
-                    android:hint="DD/MM/YYYY" />
+                    android:hint="DD/MM/YYYY"
+                    android:importantForAutofill="no"
+                    android:inputType="text|date"
+                    android:lines="1"
+                    android:maxLines="1"
+                    android:textColor="@color/color_black" />
 
 
             </LinearLayout>
@@ -234,6 +266,7 @@
                 android:layout_gravity="center"
                 android:layout_weight="0.1"
                 android:src="@drawable/ic_fab_complete"
+                android:visibility="gone"
                 tools:ignore="ContentDescription" />
 
         </LinearLayout>
@@ -262,9 +295,12 @@
                     android:textSize="@dimen/_14sdp" />
 
                 <Spinner
+                    android:id="@+id/fragment_vendor_dashboard_create_new_spinner_profession"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.7" />
+                    android:layout_weight="0.7"
+                    android:gravity="end"
+                    android:textAlignment="textEnd" />
 
             </LinearLayout>
 
@@ -295,6 +331,7 @@
                     android:gravity="center">
 
                     <Spinner
+                        android:id="@+id/fragment_vendor_dashboard_create_new_spinner_start_age"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.4"
@@ -314,6 +351,7 @@
                         android:textSize="@dimen/_14sdp" />
 
                     <Spinner
+                        android:id="@+id/fragment_vendor_dashboard_create_new_spinner_end_age"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.4" />
@@ -342,6 +380,7 @@
                     android:textSize="@dimen/_14sdp" />
 
                 <Spinner
+                    android:id="@+id/fragment_vendor_dashboard_create_new_spinner_location"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7" />
@@ -368,6 +407,7 @@
                     android:textSize="@dimen/_14sdp" />
 
                 <Spinner
+                    android:id="@+id/fragment_vendor_dashboard_create_new_spinner_group"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.7" />

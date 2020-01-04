@@ -1,5 +1,8 @@
 package com.survey.surveyapp.service;
 
+import com.survey.surveyapp.vo.VoResponseAddSurveyQuestions;
+import com.survey.surveyapp.vo.VoResponseCreateNewSurvey;
+import com.survey.surveyapp.vo.VoResponseFetchCategory;
 import com.survey.surveyapp.vo.VoResponseLogin;
 import com.survey.surveyapp.vo.VoResponseRegister;
 import com.survey.surveyapp.vo.VoResponseSocialLogin;
@@ -109,6 +112,104 @@ public class MyService {
                     @Override
                     public void onNext(VoResponseSocialLogin voResponseSocialLogin) {
                         mServiceCallback.onSuccess(voResponseSocialLogin);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        mServiceCallback.onError(new Exception(e));
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    public void createNewSurvey(String mStringAccessToken, String mStringKey, JSONObject mJsonObjectData, final ServiceCallback<VoResponseCreateNewSurvey> mServiceCallback) {
+        RequestBody mRequestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), mJsonObjectData.toString());
+
+        mApiService.createNewSurvey(mStringAccessToken, mStringKey, mRequestBody)
+                .timeout(30, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .flatMap(data -> Observable.just(data))
+                .filter(data -> data != null)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<VoResponseCreateNewSurvey>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(VoResponseCreateNewSurvey voResponseCreateNewSurvey) {
+                        mServiceCallback.onSuccess(voResponseCreateNewSurvey);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        mServiceCallback.onError(new Exception(e));
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    public void addSurveyQuestions(String mStringAccessToken, String mStringKey, JSONObject mJsonObjectData, final ServiceCallback<VoResponseAddSurveyQuestions> mServiceCallback) {
+        RequestBody mRequestBody = RequestBody.create(MediaType.parse("application/json; charset=utf-8"), mJsonObjectData.toString());
+
+        mApiService.addSurveyQuestions(mStringAccessToken, mStringKey, mRequestBody)
+                .timeout(30, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .flatMap(data -> Observable.just(data))
+                .filter(data -> data != null)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<VoResponseAddSurveyQuestions>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(VoResponseAddSurveyQuestions voResponseAddSurveyQuestions) {
+                        mServiceCallback.onSuccess(voResponseAddSurveyQuestions);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        mServiceCallback.onError(new Exception(e));
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    public void fetchSurveyCategory(String mStringAccessToken, String mStringKey, final ServiceCallback<VoResponseFetchCategory> mServiceCallback) {
+
+        mApiService.fetchSurveyCategory(mStringAccessToken, mStringKey)
+                .timeout(30, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .flatMap(data -> Observable.just(data))
+                .filter(data -> data != null)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<VoResponseFetchCategory>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(VoResponseFetchCategory voResponseFetchCategory) {
+                        mServiceCallback.onSuccess(voResponseFetchCategory);
                     }
 
                     @Override

@@ -56,6 +56,15 @@
         <item>Not applicable</item>
     </string-array>
 
+    <string-array name="array_group">
+        <item>None</item>
+    </string-array>
+
+    <string-array name="array_location">
+        <item>India</item>
+        <item>USA</item>
+    </string-array>
+
     <string name="text_submit">Submit</string>
     <string name="text_forgot_password_enter_email_phone_number">Enter Email/Phone number</string>
     <string name="text_forgot_password_recovery_password">Recovery your password!</string>
