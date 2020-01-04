@@ -1,5 +1,6 @@
 package com.survey.surveyapp.activities.vendor_flow.fragment;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,11 +14,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.survey.surveyapp.R;
-import com.survey.surveyapp.activities.ActivityLogin;
 import com.survey.surveyapp.activities.ActivitySelectFlow;
 import com.survey.surveyapp.activities.vendor_flow.ActivityVendorDraftSurveys;
 import com.survey.surveyapp.activities.vendor_flow.ActivityVendorMain;
 import com.survey.surveyapp.activities.vendor_flow.ActivityVendorReceivedResponses;
+import com.survey.surveyapp.helper.Utility;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -72,6 +73,7 @@ public class FragmentVendorMenu extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mActivityVendorMain = (ActivityVendorMain) getActivity();
+
     }
 
     @Nullable
@@ -135,9 +137,25 @@ public class FragmentVendorMenu extends Fragment {
         mTextViewLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent mIntentLogout = new Intent(mActivityVendorMain, ActivitySelectFlow.class);
-                mActivityVendorMain.finishAffinity();
-                startActivity(mIntentLogout);
+                mActivityVendorMain.mUtility.errorDialogWithTitleBothClicks(getResources().getString(R.string.text_menu_logout),
+                        getResources().getString(R.string.text_vendor_menu_logout_msg),
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                                mActivityVendorMain.mUtility.clearAllPrefData();
+                                Intent mIntentLogin = new Intent(getActivity(), ActivitySelectFlow.class);
+                                getActivity().finishAffinity();
+                                startActivity(mIntentLogin);
+
+                            }
+                        }, getResources().getString(R.string.text_vendor_menu_logout_yes),
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        }, getResources().getString(R.string.text_vendor_menu_logout_cancel));
             }
         });
 

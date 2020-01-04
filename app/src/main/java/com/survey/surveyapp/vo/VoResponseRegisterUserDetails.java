@@ -34,6 +34,7 @@ public class VoResponseRegisterUserDetails implements Serializable {
     private String google_id = "";
     private String twitter_id = "";
     private String updated_by = "";
+    private String access_token = "";
 
     public String getId() {
         return id;
@@ -273,5 +274,13 @@ public class VoResponseRegisterUserDetails implements Serializable {
 
     public void setUpdated_by(String updated_by) {
         this.updated_by = updated_by;
+    }
+
+    public String getAccess_token() {
+        return access_token;
+    }
+
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
     }
 }

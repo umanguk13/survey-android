@@ -32,6 +32,11 @@ import com.survey.surveyapp.vo.VoResponseFetchCategory;
 import com.survey.surveyapp.vo.VoResponseFetchCategoryData;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.SocketTimeoutException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -39,6 +44,7 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.HttpException;
 
 public class FragmentVendorDashboardCreateNewSurvey extends Fragment {
 
@@ -535,9 +541,25 @@ public class FragmentVendorDashboardCreateNewSurvey extends Fragment {
                     }
 
                     @Override
-                    public void onError(Exception networkError) {
+                    public void onError(Throwable networkError) {
+                        mActivityVendorMain.mUtility.hideAnimatedProgress();
                         networkError.printStackTrace();
-                        mActivityVendorMain.mUtility.errorDialog(mActivityVendorMain.getResources().getString(R.string.something_went_wrong_fix_soon));
+
+                        if (networkError instanceof HttpException) {
+                            try {
+                                int statusCode = ((HttpException) networkError).code();
+                                JSONObject mJsonObjectMsg = new JSONObject(((HttpException) networkError).response().errorBody().string());
+                                mActivityVendorMain.mUtility.errorDialog(mJsonObjectMsg.optString("message"));
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            } catch (JSONException e1) {
+                                e1.printStackTrace();
+                            }
+                        } else if (networkError instanceof SocketTimeoutException) {
+                            mActivityVendorMain.mUtility.errorDialog(mActivityVendorMain.getString(R.string.something_went_wrong_fix_soon));
+                        } else {
+                            mActivityVendorMain.mUtility.errorDialog(mActivityVendorMain.getString(R.string.something_went_wrong_fix_soon));
+                        }
                     }
                 });
     }

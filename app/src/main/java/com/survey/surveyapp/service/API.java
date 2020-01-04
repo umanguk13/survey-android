@@ -1,6 +1,7 @@
 package com.survey.surveyapp.service;
 
 import com.survey.surveyapp.helper.TagValues;
+import com.survey.surveyapp.vo.VoResponceCheckUserExist;
 import com.survey.surveyapp.vo.VoResponseAddSurveyQuestions;
 import com.survey.surveyapp.vo.VoResponseCreateNewSurvey;
 import com.survey.surveyapp.vo.VoResponseFetchCategory;
@@ -45,5 +46,13 @@ public interface API {
     @GET(TagValues.URL_FETCH_CATEGORY)
     Observable<VoResponseFetchCategory> fetchSurveyCategory(@Header("x-access-token") String mStringXAccessToken,
                                                             @Header("X-key") String mStringXKey);
+
+    @Headers("Content-Type: application/json")
+    @POST(TagValues.URL_CHECK_USERNAME_EXIST)
+    Observable<VoResponceCheckUserExist> checkUserExist(@Body RequestBody mRequestBody);
+
+    @Headers("Content-Type: application/json")
+    @POST(TagValues.URL_CHECK_USER_EXIST)
+    Observable<VoResponceCheckUserExist> verifuUserPhome(@Body RequestBody mRequestBody);
 
 }

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -42,7 +43,7 @@ public class Utility {
 
     private Dialog mDialogProgress;
 
-    AlertDialog mAlertDialog;
+    Dialog mAlertDialog;
 
     Toast mToast;
 
@@ -122,7 +123,8 @@ public class Utility {
 
     public void errorDialog(String message) {
         if (!mActivity.isFinishing() && !mActivity.isDestroyed()) {
-            AlertDialog.Builder mAlertDialogBuilder = new AlertDialog.Builder(mActivity, R.style.AlertDialogCustom);
+            AlertDialog.Builder mAlertDialogBuilder = new AlertDialog.Builder(mActivity);
+
             mAlertDialogBuilder.setTitle(mActivity.getResources().getString(R.string.app_name));
             mAlertDialogBuilder.setMessage(message).setCancelable(false).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                 @Override
@@ -136,6 +138,8 @@ public class Utility {
                 mAlertDialog = null;
             }
             mAlertDialog = mAlertDialogBuilder.create();
+            mAlertDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            mAlertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
             mAlertDialog.show();
         }
     }

@@ -24,13 +24,24 @@ public class TagValues {
 
     //Shared Preferences
     public static final String PREF_SELECTED_ROLE_ID = "PREF_SELECTED_ROLE_ID";
-    public static final String PREF_USER_ID = "PREF_USER_ID";
     public static final String PREF_USER_ACCESS_TOKEN = "PREF_USER_ACCESS_TOKEN";
 
     //API Endpoints
     public static final String URL_REGISTER = "register";
     public static final String URL_NORMAL_LOGIN = "mobile_login";
     public static final String URL_SOCIAL_LOGIN = "social_login";
+    public static final String URL_CHECK_USERNAME_EXIST = "check_username_exist";
+    public static final String URL_CHECK_USER_EXIST = "check_user_exist";
+
+    //User Information
+    public static final String PREF_USER_FIRST_NAME = "pref_user_first_name";
+    public static final String PREF_USER_LAST_NAME = "pref_user_last_name";
+    public static final String PREF_USER_ID = "pref_user_id";
+    public static final String PREF_USER_ROLE_ID = "pref_user_role_id";
+    public static final String PREF_USER_PROFESSION_ID = "pref_user_profession_id";
+    public static final String PREF_USER_EMAIL = "pref_user_email";
+    public static final String PREF_USER_PHOME = "pref_user_phome";
+    public static final String PREF_USER_PROFILE_PIC = "pref_user_profile_pic";
     public static final String URL_CREATE_NEW_SURVEY = "api/v1/m/add_survey";
     public static final String URL_ADD_SURVEY_QUESTIONS = "api/v1/m/add_survey_question_answer";
     public static final String URL_FETCH_CATEGORY = "api/v1/m/list_category";

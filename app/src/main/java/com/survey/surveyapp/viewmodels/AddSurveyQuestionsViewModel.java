@@ -14,7 +14,13 @@ import com.survey.surveyapp.service.MyService;
 import com.survey.surveyapp.vo.VoResponseAddSurveyQuestions;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.SocketTimeoutException;
+
+import retrofit2.HttpException;
 
 public class AddSurveyQuestionsViewModel extends ViewModel {
 
@@ -59,10 +65,25 @@ public class AddSurveyQuestionsViewModel extends ViewModel {
                     }
 
                     @Override
-                    public void onError(Exception networkError) {
+                    public void onError(Throwable networkError) {
                         mUtility.hideAnimatedProgress();
                         networkError.printStackTrace();
-                        mUtility.errorDialog(mActivityVendorAddSurveyQuestions.getResources().getString(R.string.something_went_wrong_fix_soon));
+
+                        if (networkError instanceof HttpException) {
+                            try {
+                                int statusCode = ((HttpException) networkError).code();
+                                JSONObject mJsonObjectMsg = new JSONObject(((HttpException) networkError).response().errorBody().string());
+                                mUtility.errorDialog(mJsonObjectMsg.optString("message"));
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            } catch (JSONException e1) {
+                                e1.printStackTrace();
+                            }
+                        } else if (networkError instanceof SocketTimeoutException) {
+                            mUtility.errorDialog(mActivityVendorAddSurveyQuestions.getString(R.string.something_went_wrong_fix_soon));
+                        } else {
+                            mUtility.errorDialog(mActivityVendorAddSurveyQuestions.getString(R.string.something_went_wrong_fix_soon));
+                        }
                     }
                 });
 
