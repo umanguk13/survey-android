@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:background="@color/color_black"
-            app:bbn_entries="@menu/bottombar_menu_items"
+            app:bbn_entries="@menu/vendor_bottombar_menu_items"
             app:bbn_scrollEnabled="true"
             app:layout_behavior="@string/bbn_phone_view_behavior" />
 
