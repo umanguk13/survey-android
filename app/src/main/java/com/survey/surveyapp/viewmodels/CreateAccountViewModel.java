@@ -132,6 +132,18 @@ public class CreateAccountViewModel extends ViewModel {
             public void onSuccess(VoResponseRegister data) {
                 //TODO Got Data Here
                 mUtility.hideAnimatedProgress();
+
+                if (data.getUser_details().getRole_id() != null) {
+                    if (data.getUser_details().getRole_id().equalsIgnoreCase(TagValues.USER_ROLE_ID)) {
+                        Intent mIntentLogin = new Intent(mActivityCreateAccount, ActivityUserMain.class);
+                        mActivityCreateAccount.finishAffinity();
+                        mActivityCreateAccount.startActivity(mIntentLogin);
+                    } else {
+                        Intent mIntentLogin = new Intent(mActivityCreateAccount, ActivityVendorMain.class);
+                        mActivityCreateAccount.finishAffinity();
+                        mActivityCreateAccount.startActivity(mIntentLogin);
+                    }
+                }
             }
 
             @Override
