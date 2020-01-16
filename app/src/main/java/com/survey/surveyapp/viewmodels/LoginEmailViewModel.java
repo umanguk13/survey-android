@@ -1,7 +1,6 @@
 package com.survey.surveyapp.viewmodels;
 
 import android.content.Intent;
-import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -9,8 +8,6 @@ import androidx.lifecycle.ViewModel;
 import com.google.gson.Gson;
 import com.survey.surveyapp.R;
 import com.survey.surveyapp.activities.ActivityLoginEmail;
-import com.survey.surveyapp.activities.ActivitySelectFlow;
-import com.survey.surveyapp.activities.ActivitySplash;
 import com.survey.surveyapp.activities.user_flow.ActivityUserMain;
 import com.survey.surveyapp.activities.vendor_flow.ActivityVendorMain;
 import com.survey.surveyapp.helper.TagValues;
@@ -52,8 +49,8 @@ public class LoginEmailViewModel extends ViewModel {
             mJsonObjectLogin.put("username", mStringEmail.getValue());
             mJsonObjectLogin.put("password", mStringPassword.getValue());
             mJsonObjectLogin.put("role_id", mUtility.getAppPrefString(TagValues.PREF_SELECTED_ROLE_ID));
-            mJsonObjectLogin.put("device_type", "1");
-            mJsonObjectLogin.put("device_token", "123");
+            mJsonObjectLogin.put("device_type", TagValues.DEVICE_TYPE);
+            mJsonObjectLogin.put("device_token", mUtility.getAppPrefString(TagValues.PREF_USER_DEVICE_ID));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -62,8 +59,6 @@ public class LoginEmailViewModel extends ViewModel {
             @Override
             public void onSuccess(VoResponseLogin data) {
 
-                System.out.println("Sanjay..." + new Gson().toJson(data));
-                //TODO Got Data Here
                 mUtility.hideAnimatedProgress();
 
                 if (data != null) {
@@ -77,7 +72,7 @@ public class LoginEmailViewModel extends ViewModel {
                         mUtility.writeSharedPreferencesString(TagValues.PREF_USER_EMAIL, data.getEmail());
 
                     if (data.getPhone() != null)
-                        mUtility.writeSharedPreferencesString(TagValues.PREF_USER_PHOME, data.getPhone());
+                        mUtility.writeSharedPreferencesString(TagValues.PREF_USER_PHONE, data.getPhone());
 
                     if (data.getProfile_pic() != null)
                         mUtility.writeSharedPreferencesString(TagValues.PREF_USER_PROFILE_PIC, data.getFirst_name());
@@ -87,6 +82,9 @@ public class LoginEmailViewModel extends ViewModel {
 
                     if (data.getId() != null)
                         mUtility.writeSharedPreferencesString(TagValues.PREF_USER_ID, data.getId());
+
+                    if (data.getAccess_token() != null)
+                        mUtility.writeSharedPreferencesString(TagValues.PREF_USER_ACCESS_TOKEN, data.getAccess_token());
 
                     if (data.getRole_id() != null) {
                         if (data.getRole_id().equalsIgnoreCase(TagValues.USER_ROLE_ID)) {

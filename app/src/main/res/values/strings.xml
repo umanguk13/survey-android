@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Survey App</string>
 
+    <!--Social Credentials-->
+    <!--Email : Surveyraffle2019@gmail.com-->
+    <!--Pass: Survey123@-->
+
     <!--Facebook App IDs For Live-->
     <string name="facebook_app_id">3397613960312397</string>
     <string name="fb_login_protocol_scheme">fb3397613960312397</string>
@@ -32,6 +36,7 @@
     <string name="phone_number">Phone number</string>
 
     <string name="enter_phone_number">Enter phone number</string>
+    <string name="enter_otp">Enter received OTP</string>
 
     <!--Create Account Screen-->
     <string name="text_create_account_sign_up">Hi There!\nSign up for FREE account</string>
@@ -73,7 +78,7 @@
     <string name="text_forgot_password_dont_have_account">Don\'t have an account? Create</string>
 
     <string name="text_login_phone">Login with your phone!</string>
-    <string name="text_login_enter_phone_number">Enter Phone number</string>
+    <string name="text_login_enter_phone_number">Enter Phone number (ex. +91 1234567890)</string>
     <string name="text_login_next">Next</string>
 
     <string name="text_verify_otp">Enter your OTP</string>

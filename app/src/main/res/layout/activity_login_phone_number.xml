@@ -52,15 +52,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
-                android:inputType="text"
+                android:inputType="number"
                 android:lines="1"
                 android:maxLines="1"
+                android:text='@={loginEnterPhoneViewModel.strPhoneNumber}'
                 android:textColor="@color/color_black" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
-            android:id="@+id/activity_login_phone_number_email_textview_login"
+            android:id="@+id/activity_login_phone_number_email_textview_next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/activity_login_phone_number_input_layout_enter_email"
@@ -78,11 +79,12 @@
             android:id="@+id/activity_login_phone_number_linear_or"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/activity_login_phone_number_email_textview_login"
+            android:layout_below="@+id/activity_login_phone_number_email_textview_next"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:gravity="center">
+            android:gravity="center"
+            android:visibility="gone">
 
             <View
                 android:layout_width="0dp"
@@ -117,14 +119,16 @@
             android:text="@string/text_login_with"
             android:textColor="@color/color_black"
             android:textSize="@dimen/_12ssp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/activity_login_phone_number_linear_social_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/activity_login_phone_number_textview_login_with"
-            android:layout_marginTop="@dimen/_10sdp">
+            android:layout_marginTop="@dimen/_10sdp"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/activity_login_phone_number_imageview_facebook"
@@ -185,7 +189,8 @@
             android:gravity="center"
             android:text="@string/text_forgot_password_dont_have_account"
             android:textColor="@color/color_black"
-            android:textSize="@dimen/_17ssp" />
+            android:textSize="@dimen/_17ssp"
+            android:visibility="gone" />
 
     </RelativeLayout>
 

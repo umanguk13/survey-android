@@ -29,7 +29,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.survey.surveyapp.BaseActivity;
 import com.survey.surveyapp.R;
 import com.survey.surveyapp.databinding.ActivityLoginBinding;
@@ -43,6 +46,7 @@ import com.twitter.sdk.android.core.identity.TwitterAuthClient;
 
 import org.json.JSONObject;
 
+import java.lang.invoke.ConstantCallSite;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -262,8 +266,10 @@ public class ActivityLogin extends BaseActivity {
 
         GenerateKeyHash();
 
-
-
+        if (mUtility.getAppPrefString(TagValues.PREF_USER_DEVICE_ID) == null
+                || mUtility.getAppPrefString(TagValues.PREF_USER_DEVICE_ID).equalsIgnoreCase("")) {
+            getFireBaseRefreshedToken();
+        }
 
     }
 
@@ -403,5 +409,12 @@ public class ActivityLogin extends BaseActivity {
         });
     }
 
+    public void getFireBaseRefreshedToken() {
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(ActivityLogin.this,
+                instanceIdResult -> {
+                    String newToken = instanceIdResult.getToken();
+                    mUtility.writeSharedPreferencesString(TagValues.PREF_USER_DEVICE_ID, newToken);
+                });
+    }
 
 }

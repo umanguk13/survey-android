@@ -28,11 +28,12 @@ public class PinEntryEditText extends EditText {
     private float mLineSpacing = 8; //8dp by default, height of the text from our lines
     private int mMaxLength = 4;
 
-    private View.OnClickListener mClickListener;
+    private OnClickListener mClickListener;
 
     private float mLineStroke = 1; //1dp by default
     private float mLineStrokeSelected = 2; //2dp by default
     private Paint mLinesPaint;
+
     int[][] mStates = new int[][]{
             new int[]{android.R.attr.state_selected}, // selected
             new int[]{android.R.attr.state_focused}, // focused
@@ -78,21 +79,19 @@ public class PinEntryEditText extends EditText {
 
         if (!isInEditMode()) {
             TypedValue outValue = new TypedValue();
-            context.getTheme().resolveAttribute(R.attr.colorControlActivated,
-                    outValue, true);
+            context.getTheme().resolveAttribute(R.attr.colorControlActivated, outValue, true);
             final int colorActivated = outValue.data;
             mColors[0] = colorActivated;
 
-            context.getTheme().resolveAttribute(R.attr.colorPrimaryDark,
-                    outValue, true);
+            context.getTheme().resolveAttribute(R.attr.colorPrimaryDark, outValue, true);
             final int colorDark = outValue.data;
             mColors[1] = colorDark;
 
-            context.getTheme().resolveAttribute(R.attr.colorControlHighlight,
-                    outValue, true);
+            context.getTheme().resolveAttribute(R.attr.colorControlHighlight, outValue, true);
             final int colorHighlight = outValue.data;
             mColors[2] = colorHighlight;
         }
+
         setBackgroundResource(0);
         mSpace = multi * mSpace; //convert to pixels for our density
         mLineSpacing = multi * mLineSpacing; //convert to pixels for our density
@@ -116,6 +115,7 @@ public class PinEntryEditText extends EditText {
                 return false;
             }
         });
+
         // When tapped, move cursor to end of text.
         super.setOnClickListener(new OnClickListener() {
             @Override
@@ -143,6 +143,7 @@ public class PinEntryEditText extends EditText {
     protected void onDraw(Canvas canvas) {
         //super.onDraw(canvas);
         int availableWidth = getWidth() - getPaddingRight() - getPaddingLeft();
+
         if (mSpace < 0) {
             mCharSize = (availableWidth / (mNumChars * 2 - 1));
         } else {
@@ -165,7 +166,7 @@ public class PinEntryEditText extends EditText {
             if (getText().length() > i) {
                 float middle = startX + mCharSize / 2;
                 Paint mPaint = getPaint();
-                mPaint.setColor(Color.WHITE);
+                mPaint.setColor(Color.BLACK);
                 canvas.drawText(text, i, i + 1, middle - textWidths[0] / 2, bottom - mLineSpacing, mPaint);
             }
 
@@ -178,8 +179,8 @@ public class PinEntryEditText extends EditText {
     }
 
     private int getColorForState(int... states) {
-//        return mColorStates.getColorForState(states, Color.GRAY);
-        return Color.WHITE;
+        return mColorStates.getColorForState(states, Color.GRAY);
+//        return Color.WHITE;
     }
 
     /**

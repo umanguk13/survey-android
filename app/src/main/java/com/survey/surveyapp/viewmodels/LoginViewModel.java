@@ -8,13 +8,11 @@ import androidx.lifecycle.ViewModel;
 
 import com.survey.surveyapp.BaseActivity;
 import com.survey.surveyapp.R;
-import com.survey.surveyapp.activities.ActivityLogin;
 import com.survey.surveyapp.activities.user_flow.ActivityUserMain;
 import com.survey.surveyapp.activities.vendor_flow.ActivityVendorMain;
 import com.survey.surveyapp.helper.TagValues;
 import com.survey.surveyapp.helper.Utility;
 import com.survey.surveyapp.service.MyService;
-import com.survey.surveyapp.vo.VoResponseLogin;
 import com.survey.surveyapp.vo.VoResponseSocialLogin;
 
 import org.json.JSONException;
@@ -74,7 +72,7 @@ public class LoginViewModel extends ViewModel {
                         mUtility.writeSharedPreferencesString(TagValues.PREF_USER_EMAIL, data.getUser_details().getEmail());
 
                     if (data.getUser_details().getPhone() != null)
-                        mUtility.writeSharedPreferencesString(TagValues.PREF_USER_PHOME, data.getUser_details().getPhone());
+                        mUtility.writeSharedPreferencesString(TagValues.PREF_USER_PHONE, data.getUser_details().getPhone());
 
                     if (data.getUser_details().getProfile_pic() != null)
                         mUtility.writeSharedPreferencesString(TagValues.PREF_USER_PROFILE_PIC, data.getUser_details().getFirst_name());

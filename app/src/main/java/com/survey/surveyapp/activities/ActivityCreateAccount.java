@@ -82,6 +82,9 @@ public class ActivityCreateAccount extends BaseActivity {
     //LinkedIn SignIn
     boolean isLinkedInSignIn = false;
 
+    String mStringPhoneNumber = "";
+    public boolean isFromPhoneNumber = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +92,12 @@ public class ActivityCreateAccount extends BaseActivity {
 
         initToolbar();
         mToolbarMain.setVisibility(View.GONE);
+
+        if (getIntent().hasExtra("isFromPhoneNumber")) {
+            isFromPhoneNumber = getIntent().getBooleanExtra("isFromPhoneNumber", false);
+            mStringPhoneNumber = getIntent().getStringExtra("phone_number");
+            System.out.println("Darshan... CreateAccount : " + mStringPhoneNumber);
+        }
 
         mTwitterAuthClient = new TwitterAuthClient();
 
@@ -161,7 +170,6 @@ public class ActivityCreateAccount extends BaseActivity {
                 }
             }
         });
-
 
         mActivityCreateAccountBinding.activityLoginEmailImageviewGooglePlus.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -333,6 +341,24 @@ public class ActivityCreateAccount extends BaseActivity {
                 }
             }
         });
+
+        if (isFromPhoneNumber) {
+            mActivityCreateAccountBinding.activityLoginEmailEmailInputLayoutChoosePassword.setVisibility(View.GONE);
+            mActivityCreateAccountBinding.activityLoginEmailEmailInputLayoutConfirmPassword.setVisibility(View.GONE);
+
+            mCreateAccountViewModel.mStringPhoneNumber.setValue(mStringPhoneNumber);
+            mActivityCreateAccountBinding.activityLoginEmailEmailEdittextPhoneNumber.setClickable(false);
+            mActivityCreateAccountBinding.activityLoginEmailEmailEdittextPhoneNumber.setFocusable(false);
+            mActivityCreateAccountBinding.activityLoginEmailEmailEdittextPhoneNumber.setFocusableInTouchMode(false);
+        } else {
+            mActivityCreateAccountBinding.activityLoginEmailEmailInputLayoutChoosePassword.setVisibility(View.VISIBLE);
+            mActivityCreateAccountBinding.activityLoginEmailEmailInputLayoutConfirmPassword.setVisibility(View.VISIBLE);
+
+            mActivityCreateAccountBinding.activityLoginEmailEmailEdittextPhoneNumber.setClickable(true);
+            mActivityCreateAccountBinding.activityLoginEmailEmailEdittextPhoneNumber.setFocusable(true);
+            mActivityCreateAccountBinding.activityLoginEmailEmailEdittextPhoneNumber.setFocusableInTouchMode(true);
+        }
+
     }
 
     @Override

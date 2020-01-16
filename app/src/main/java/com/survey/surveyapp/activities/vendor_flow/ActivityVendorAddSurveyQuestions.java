@@ -1,6 +1,7 @@
 package com.survey.surveyapp.activities.vendor_flow;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -76,7 +77,9 @@ public class ActivityVendorAddSurveyQuestions extends VendorBaseActivity {
         mActivityVendorAddSurveyQuestionsBinding.activityVendorAddSurveyQuestionTextviewPostLater.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent mIntentDraftSurvey = new Intent(ActivityVendorAddSurveyQuestions.this, ActivityVendorDraftSurveys.class);
+                finish();
+                startActivity(mIntentDraftSurvey);
             }
         });
 

@@ -16,8 +16,6 @@ public class ActivityLoginPhoneNumber extends BaseActivity {
 
     LoginEnterPhoneViewModel mLoginEnterPhoneViewModel;
 
-    private static final int PHONE_NUMBER_SIGN_IN = 222;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,15 +29,20 @@ public class ActivityLoginPhoneNumber extends BaseActivity {
         mActivityLoginPhoneNumberBinding.setLoginEnterPhoneViewModel(mLoginEnterPhoneViewModel);
         mActivityLoginPhoneNumberBinding.setLifecycleOwner(this);
 
-//        mActivityLoginPhoneNumberBinding.activityLoginPhoneNumberFloatingActionButtonNext.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (isValid()) {
-////                    mLoginEnterPhoneViewModel.sendVerificationCode(mActivityLoginPhoneNumberBinding.activityLoginPhoneNumberCountryPickerCountrycode.getSelectedCountryCodeWithPlus(),
-////                            mLoginEnterPhoneViewModel.getPhoneNumber());
-//                }
-//            }
-//        });
+        mActivityLoginPhoneNumberBinding.activityLoginPhoneNumberEmailTextviewNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isValid()) {
+                    if (!mLoginEnterPhoneViewModel.getPhoneNumber().contains("+")) {
+                        mLoginEnterPhoneViewModel.strPhoneNumber.setValue("+" + mLoginEnterPhoneViewModel.strPhoneNumber.getValue());
+                    }
+                    
+                    Intent mIntentVerifyOtp = new Intent(ActivityLoginPhoneNumber.this, ActivityLoginVerifyOTP.class);
+                    mIntentVerifyOtp.putExtra("phone_number", mLoginEnterPhoneViewModel.getPhoneNumber());
+                    startActivity(mIntentVerifyOtp);
+                }
+            }
+        });
 
     }
 
@@ -54,12 +57,7 @@ public class ActivityLoginPhoneNumber extends BaseActivity {
             return false;
         }
 
-        return false;
-    }
-
-    public void goAndSetVerificationCode(String code) {
-        Intent mIntentVerifyOtp = new Intent(ActivityLoginPhoneNumber.this, ActivityLoginVerifyOTP.class);
-        startActivityForResult(mIntentVerifyOtp, PHONE_NUMBER_SIGN_IN);
+        return true;
     }
 
 }

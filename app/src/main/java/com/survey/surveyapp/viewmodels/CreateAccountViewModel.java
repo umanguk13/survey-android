@@ -13,7 +13,7 @@ import com.survey.surveyapp.activities.vendor_flow.ActivityVendorMain;
 import com.survey.surveyapp.helper.TagValues;
 import com.survey.surveyapp.helper.Utility;
 import com.survey.surveyapp.service.MyService;
-import com.survey.surveyapp.vo.VoResponceCheckUserExist;
+import com.survey.surveyapp.vo.VoResponseCheckUserExist;
 import com.survey.surveyapp.vo.VoResponseRegister;
 import com.survey.surveyapp.vo.VoResponseSocialLogin;
 
@@ -70,9 +70,9 @@ public class CreateAccountViewModel extends ViewModel {
             e.printStackTrace();
         }
 
-        mMyService.checkUserExist(mJsonObjectUserExist, new MyService.ServiceCallback<VoResponceCheckUserExist>() {
+        mMyService.checkUserExist(mJsonObjectUserExist, new MyService.ServiceCallback<VoResponseCheckUserExist>() {
             @Override
-            public void onSuccess(VoResponceCheckUserExist data) {
+            public void onSuccess(VoResponseCheckUserExist data) {
                 //TODO Got Data Here
                 if (data != null) {
                     if (data.getIs_username_exist().equalsIgnoreCase("true")) {
@@ -123,6 +123,8 @@ public class CreateAccountViewModel extends ViewModel {
             mJsonObjectLogin.put("country_id", "1");
             mJsonObjectLogin.put("state_id", "1");
             mJsonObjectLogin.put("city_id", "1");
+            mJsonObjectLogin.put("device_type", TagValues.DEVICE_TYPE);
+            mJsonObjectLogin.put("device_token", mUtility.getAppPrefString(TagValues.PREF_USER_DEVICE_ID));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -143,7 +145,7 @@ public class CreateAccountViewModel extends ViewModel {
                     mUtility.writeSharedPreferencesString(TagValues.PREF_USER_EMAIL, data.getUser_details().getEmail());
 
                 if (data.getUser_details().getPhone() != null)
-                    mUtility.writeSharedPreferencesString(TagValues.PREF_USER_PHOME, data.getUser_details().getPhone());
+                    mUtility.writeSharedPreferencesString(TagValues.PREF_USER_PHONE, data.getUser_details().getPhone());
 
                 if (data.getUser_details().getProfile_pic() != null)
                     mUtility.writeSharedPreferencesString(TagValues.PREF_USER_PROFILE_PIC, data.getUser_details().getFirst_name());
@@ -221,24 +223,26 @@ public class CreateAccountViewModel extends ViewModel {
             return false;
         }
 
-        if (mUtility.isValidEmail(mStringEmail.getValue())) {
+        if (!mUtility.isValidEmail(mStringEmail.getValue())) {
             Toast.makeText(mActivityCreateAccount, "Please enter valid email address.", Toast.LENGTH_LONG).show();
             return false;
         }
 
-        if (mStringPassword.getValue().equalsIgnoreCase("")) {
-            Toast.makeText(mActivityCreateAccount, "Please enter your password.", Toast.LENGTH_LONG).show();
-            return false;
-        }
+        if (!mActivityCreateAccount.isFromPhoneNumber) {
+            if (mStringPassword.getValue().equalsIgnoreCase("")) {
+                Toast.makeText(mActivityCreateAccount, "Please enter your password.", Toast.LENGTH_LONG).show();
+                return false;
+            }
 
-        if (mStringConfirmPassword.getValue().equalsIgnoreCase("")) {
-            Toast.makeText(mActivityCreateAccount, "Please enter your confirm password.", Toast.LENGTH_LONG).show();
-            return false;
-        }
+            if (mStringConfirmPassword.getValue().equalsIgnoreCase("")) {
+                Toast.makeText(mActivityCreateAccount, "Please enter your confirm password.", Toast.LENGTH_LONG).show();
+                return false;
+            }
 
-        if (mStringConfirmPassword.getValue().equalsIgnoreCase(mStringPassword.getValue())) {
-            Toast.makeText(mActivityCreateAccount, "Your confirm password not matching with password. Please enter correct password", Toast.LENGTH_LONG).show();
-            return false;
+            if (!mStringConfirmPassword.getValue().equalsIgnoreCase(mStringPassword.getValue())) {
+                Toast.makeText(mActivityCreateAccount, "Your confirm password not matching with password. Please enter correct password", Toast.LENGTH_LONG).show();
+                return false;
+            }
         }
 
         if (mStringPhoneNumber.getValue().equalsIgnoreCase("")) {
@@ -293,7 +297,7 @@ public class CreateAccountViewModel extends ViewModel {
                         mUtility.writeSharedPreferencesString(TagValues.PREF_USER_EMAIL, data.getUser_details().getEmail());
 
                     if (data.getUser_details().getPhone() != null)
-                        mUtility.writeSharedPreferencesString(TagValues.PREF_USER_PHOME, data.getUser_details().getPhone());
+                        mUtility.writeSharedPreferencesString(TagValues.PREF_USER_PHONE, data.getUser_details().getPhone());
 
                     if (data.getUser_details().getProfile_pic() != null)
                         mUtility.writeSharedPreferencesString(TagValues.PREF_USER_PROFILE_PIC, data.getUser_details().getFirst_name());

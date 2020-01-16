@@ -1,5 +1,4 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.trust_tag_business.ActivitySplash">
 
@@ -36,35 +35,26 @@
             android:textSize="@dimen/_20ssp"
             android:textStyle="bold" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/activity_login_verify_otp_input_layout_enter_email"
+        <com.survey.surveyapp.custom_views.PinEntryEditText
+            android:id="@+id/activity_login_verify_otp_input_layout_enter_otp"
+            style="@style/EdittextVerifycode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/activity_login_verify_otp_textview_welcome"
-            android:layout_marginStart="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
-            android:hint="@string/text_verify_enter_otp"
-            android:textColorHint="@color/color_black"
-            app:boxBackgroundColor="@android:color/transparent">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/activity_login_verify_otp_edittext_enter_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ellipsize="end"
-                android:inputType="text"
-                android:lines="1"
-                android:maxLines="1"
-                android:textColor="@color/color_black" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            android:layout_margin="@dimen/_20sdp"
+            android:cursorVisible="false"
+            android:digits="1234567890"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textIsSelectable="false"
+            android:textSize="@dimen/_15sdp" />
 
         <TextView
-            android:id="@+id/activity_login_verify_otp_email_textview_login"
+            android:id="@+id/activity_login_verify_otp_email_textview_confirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/activity_login_verify_otp_input_layout_enter_email"
+            android:layout_below="@+id/activity_login_verify_otp_input_layout_enter_otp"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
@@ -79,11 +69,12 @@
             android:id="@+id/activity_login_verify_otp_linear_or"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/activity_login_verify_otp_email_textview_login"
+            android:layout_below="@+id/activity_login_verify_otp_email_textview_confirm"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:gravity="center">
+            android:gravity="center"
+            android:visibility="gone">
 
             <View
                 android:layout_width="0dp"
@@ -118,14 +109,16 @@
             android:text="@string/text_login_with"
             android:textColor="@color/color_black"
             android:textSize="@dimen/_12ssp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/activity_login_verify_otp_linear_social_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/activity_login_verify_otp_textview_login_with"
-            android:layout_marginTop="@dimen/_10sdp">
+            android:layout_marginTop="@dimen/_10sdp"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/activity_login_verify_otp_imageview_facebook"
@@ -186,7 +179,8 @@
             android:gravity="center"
             android:text="@string/text_forgot_password_dont_have_account"
             android:textColor="@color/color_black"
-            android:textSize="@dimen/_17ssp" />
+            android:textSize="@dimen/_17ssp"
+            android:visibility="gone" />
 
     </RelativeLayout>
 
