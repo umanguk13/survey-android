@@ -5,6 +5,7 @@ import com.survey.surveyapp.vo.VoResponseAddSurveyQuestions;
 import com.survey.surveyapp.vo.VoResponseCreateNewSurvey;
 import com.survey.surveyapp.vo.VoResponseCurrentSurvey;
 import com.survey.surveyapp.vo.VoResponseFetchCategory;
+import com.survey.surveyapp.vo.VoResponseFetchUserProfile;
 import com.survey.surveyapp.vo.VoResponseLogin;
 import com.survey.surveyapp.vo.VoResponsePreviousSurvey;
 import com.survey.surveyapp.vo.VoResponseRegister;
@@ -357,6 +358,38 @@ public class MyService {
                     }
                 });
 
+    }
+
+    public void fetchUserProfile(String mStringAccessToken, String mStringKey, final ServiceCallback<VoResponseFetchUserProfile> mServiceCallback) {
+
+        mApiService.fetchUserProfile(mStringAccessToken, mStringKey)
+                .timeout(30, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .flatMap(data -> Observable.just(data))
+                .filter(data -> data != null)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<VoResponseFetchUserProfile>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(VoResponseFetchUserProfile voResponseFetchUserProfile) {
+                        mServiceCallback.onSuccess(voResponseFetchUserProfile);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        mServiceCallback.onError(e);
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 
     public interface ServiceCallback<T> {

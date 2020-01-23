@@ -6,6 +6,7 @@ import com.survey.surveyapp.vo.VoResponseAddSurveyQuestions;
 import com.survey.surveyapp.vo.VoResponseCreateNewSurvey;
 import com.survey.surveyapp.vo.VoResponseCurrentSurvey;
 import com.survey.surveyapp.vo.VoResponseFetchCategory;
+import com.survey.surveyapp.vo.VoResponseFetchUserProfile;
 import com.survey.surveyapp.vo.VoResponseLogin;
 import com.survey.surveyapp.vo.VoResponsePreviousSurvey;
 import com.survey.surveyapp.vo.VoResponseRegister;
@@ -66,5 +67,9 @@ public interface API {
     @POST(TagValues.URL_FETCH_PREVIOUS_SURVEY)
     Observable<VoResponsePreviousSurvey> fetchPreviousSurvey(@Header("x-access-token") String mStringXAccessToken,
                                                              @Header("X-key") String mStringXKey);
+
+    @GET(TagValues.URL_FETCH_USER_PROFILE)
+    Observable<VoResponseFetchUserProfile> fetchUserProfile(@Header("x-access-token") String mStringXAccessToken,
+                                                            @Header("X-key") String mStringXKey);
 
 }

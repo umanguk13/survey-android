@@ -91,6 +91,7 @@
     <string name="text_user_dashboard_trending_surveys">Trending Surveys</string>
 
     <!--Profile Screen-->
+    <string name="text_profile_name">Name</string>
     <string name="text_profile_email">Email</string>
     <string name="text_profile_password">Password</string>
     <string name="text_profile_gender">Gender</string>
@@ -136,7 +137,15 @@
     <!--Vendor Flow-->
     <!--Dashboard-->
     <string name="text_vendor_dashboard_current_surveys">Current Surveys</string>
+    <string name="text_vendor_dashboard_survey_id">Survey ID: %1$s</string>
+    <string name="text_vendor_dashboard_survey_category">Category: %1$s</string>
+    <string name="text_vendor_dashboard_survey_start_date">Start Date: %1$s</string>
+    <string name="text_vendor_dashboard_survey_end_date">End Date: %1$s</string>
+    <string name="text_vendor_dashboard_survey_posted_on">Posted On: %1$s</string>
+    <string name="text_vendor_dashboard_survey_member_since">Member Since: %1$s</string>
+
     <string name="text_vendor_dashboard_previous_surveys">Previous Surveys</string>
+    <string name="text_user_profile_username">%1$s %2$s</string>
 
     <!--Menu Screen-->
     <string name="text_vendor_menu_menu">MENU</string>
@@ -174,7 +183,7 @@
     <string name="text_create_survey_start_date">Start Date</string>
     <string name="text_create_survey_end_date">End Date</string>
 
-    <string name="text_create_survey_participate_criteria">Prarticipate Criteria</string>
+    <string name="text_create_survey_participate_criteria">Participate Criteria</string>
     <string name="text_create_survey_edit">Edit</string>
 
     <string name="text_create_survey_profession">Profession</string>
