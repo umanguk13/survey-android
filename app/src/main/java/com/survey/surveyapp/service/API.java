@@ -4,8 +4,10 @@ import com.survey.surveyapp.helper.TagValues;
 import com.survey.surveyapp.vo.VoResponseCheckUserExist;
 import com.survey.surveyapp.vo.VoResponseAddSurveyQuestions;
 import com.survey.surveyapp.vo.VoResponseCreateNewSurvey;
+import com.survey.surveyapp.vo.VoResponseCurrentSurvey;
 import com.survey.surveyapp.vo.VoResponseFetchCategory;
 import com.survey.surveyapp.vo.VoResponseLogin;
+import com.survey.surveyapp.vo.VoResponsePreviousSurvey;
 import com.survey.surveyapp.vo.VoResponseRegister;
 import com.survey.surveyapp.vo.VoResponseSocialLogin;
 
@@ -54,5 +56,15 @@ public interface API {
     @Headers("Content-Type: application/json")
     @POST(TagValues.URL_CHECK_USER_EXIST)
     Observable<VoResponseCheckUserExist> verifyUserPhone(@Body RequestBody mRequestBody);
+
+    @Headers("Content-Type: application/json")
+    @POST(TagValues.URL_FETCH_CURRENT_SURVEY)
+    Observable<VoResponseCurrentSurvey> fetchCurrentSurvey(@Header("x-access-token") String mStringXAccessToken,
+                                                           @Header("X-key") String mStringXKey);
+
+    @Headers("Content-Type: application/json")
+    @POST(TagValues.URL_FETCH_PREVIOUS_SURVEY)
+    Observable<VoResponsePreviousSurvey> fetchPreviousSurvey(@Header("x-access-token") String mStringXAccessToken,
+                                                             @Header("X-key") String mStringXKey);
 
 }

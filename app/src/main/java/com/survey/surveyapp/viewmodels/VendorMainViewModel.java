@@ -9,6 +9,8 @@ import com.survey.surveyapp.helper.TagValues;
 import com.survey.surveyapp.helper.Utility;
 import com.survey.surveyapp.service.MyService;
 import com.survey.surveyapp.vo.VoResponseCreateNewSurvey;
+import com.survey.surveyapp.vo.VoResponseCurrentSurvey;
+import com.survey.surveyapp.vo.VoResponsePreviousSurvey;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,6 +30,8 @@ public class VendorMainViewModel extends ViewModel {
     private Utility mUtility;
 
     public MutableLiveData<VoResponseCreateNewSurvey> mLiveDataCreateNewSurvey = new MutableLiveData<>();
+    public MutableLiveData<VoResponseCurrentSurvey> mLiveDataCurrentSurvey = new MutableLiveData<>();
+    public MutableLiveData<VoResponsePreviousSurvey> mLiveDataPreviousSurvey = new MutableLiveData<>();
 
     public VendorMainViewModel(ActivityVendorMain mActivityVendorMain, MyService myService) {
         this.mActivityVendorMain = mActivityVendorMain;
@@ -88,10 +92,87 @@ public class VendorMainViewModel extends ViewModel {
                     public void onSuccess(VoResponseCreateNewSurvey data) {
                         mUtility.hideAnimatedProgress();
 
-                        if (data != null && data.getSurvey_add_data() != null
-                                && data.getSurvey_criteria_add_data() != null) {
+                        if (data != null && data.getSurvey_add_data() != null && data.getSurvey_criteria_add_data() != null) {
                             mLiveDataCreateNewSurvey.setValue(data);
                         }
+                    }
+
+                    @Override
+                    public void onError(Throwable networkError) {
+                        mUtility.hideAnimatedProgress();
+                        networkError.printStackTrace();
+
+                        if (networkError instanceof HttpException) {
+                            try {
+                                int statusCode = ((HttpException) networkError).code();
+                                JSONObject mJsonObjectMsg = new JSONObject(((HttpException) networkError).response().errorBody().string());
+                                mUtility.errorDialog(mJsonObjectMsg.optString("message"));
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            } catch (JSONException e1) {
+                                e1.printStackTrace();
+                            }
+                        } else if (networkError instanceof SocketTimeoutException) {
+                            mUtility.errorDialog(mActivityVendorMain.getString(R.string.something_went_wrong_fix_soon));
+                        } else {
+                            mUtility.errorDialog(mActivityVendorMain.getString(R.string.something_went_wrong_fix_soon));
+                        }
+                    }
+                });
+    }
+
+    public void fetchCurrentSurvey() {
+        mUtility.showAnimatedProgress(mActivityVendorMain);
+
+        mMyService.fetchCurrentSurvey(mUtility.getAppPrefString(TagValues.PREF_USER_ACCESS_TOKEN), mUtility.getAppPrefString(TagValues.PREF_USER_ID),
+                new MyService.ServiceCallback<VoResponseCurrentSurvey>() {
+                    @Override
+                    public void onSuccess(VoResponseCurrentSurvey data) {
+                        mUtility.hideAnimatedProgress();
+
+                        if (data.getSurvey_list() != null && data.getSurvey_list().size() > 0) {
+                            System.out.println("Darshan... Current Survey : " + data.getSurvey_list().size());
+                            mLiveDataCurrentSurvey.setValue(data);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable networkError) {
+                        mUtility.hideAnimatedProgress();
+                        networkError.printStackTrace();
+
+                        if (networkError instanceof HttpException) {
+                            try {
+                                int statusCode = ((HttpException) networkError).code();
+                                JSONObject mJsonObjectMsg = new JSONObject(((HttpException) networkError).response().errorBody().string());
+                                mUtility.errorDialog(mJsonObjectMsg.optString("message"));
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            } catch (JSONException e1) {
+                                e1.printStackTrace();
+                            }
+                        } else if (networkError instanceof SocketTimeoutException) {
+                            mUtility.errorDialog(mActivityVendorMain.getString(R.string.something_went_wrong_fix_soon));
+                        } else {
+                            mUtility.errorDialog(mActivityVendorMain.getString(R.string.something_went_wrong_fix_soon));
+                        }
+                    }
+                });
+    }
+
+    public void fetchPreviousSurvey() {
+        mUtility.showAnimatedProgress(mActivityVendorMain);
+
+        mMyService.fetchPreviousSurvey(mUtility.getAppPrefString(TagValues.PREF_USER_ACCESS_TOKEN), mUtility.getAppPrefString(TagValues.PREF_USER_ID),
+                new MyService.ServiceCallback<VoResponsePreviousSurvey>() {
+                    @Override
+                    public void onSuccess(VoResponsePreviousSurvey data) {
+                        mUtility.hideAnimatedProgress();
+
+                        if (data.getSurvey_list() != null && data.getSurvey_list().size() > 0) {
+                            mLiveDataPreviousSurvey.setValue(data);
+                        }
+
                     }
 
                     @Override

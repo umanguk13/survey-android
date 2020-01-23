@@ -1,6 +1,7 @@
 package com.survey.surveyapp.activities.vendor_flow.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.survey.surveyapp.R;
+import com.survey.surveyapp.vo.VoResponseCurrentSurvey;
 
 public class FragmentVendorDashboard extends Fragment {
 
@@ -56,6 +58,23 @@ public class FragmentVendorDashboard extends Fragment {
 //                mTabLayout.setupWithViewPager(mViewPager);
 //            }
         }
+    }
+
+    public void gotServiceResponse(VoResponseCurrentSurvey voResponseCurrentSurvey) {
+        System.out.println("Darshan... Current Survey : " + voResponseCurrentSurvey.getSurvey_list().size());
+        Fragment mFragmentCurrent = getChildFragmentManager().findFragmentByTag("android:switcher:" + R.id.fragment_vendor_dashboard_viewpager + ":" +
+                mViewPager.getCurrentItem());
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (mFragmentCurrent instanceof FragmentVendorDashboardCurrentSurveys) {
+                    System.out.println("Darshan... Current Survey : " + voResponseCurrentSurvey.getSurvey_list().size());
+                    ((FragmentVendorDashboardCurrentSurveys) mFragmentCurrent).gotServiceResponse(voResponseCurrentSurvey);
+                }
+            }
+        }, 1000);
+        
     }
 
     private class DashboardAdapter extends FragmentStatePagerAdapter {

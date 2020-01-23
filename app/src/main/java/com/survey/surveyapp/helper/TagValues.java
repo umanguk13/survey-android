@@ -37,6 +37,8 @@ public class TagValues {
     public static final String URL_CREATE_NEW_SURVEY = "api/v1/m/add_survey";
     public static final String URL_ADD_SURVEY_QUESTIONS = "api/v1/m/add_survey_question_answer";
     public static final String URL_FETCH_CATEGORY = "api/v1/m/list_category";
+    public static final String URL_FETCH_CURRENT_SURVEY = "api/v1/m/current_survey";
+    public static final String URL_FETCH_PREVIOUS_SURVEY = "api/v1/m/previous_survey";
 
     //User Information
     public static final String PREF_USER_FIRST_NAME = "pref_user_first_name";

@@ -19,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.lang.invoke.ConstantCallSite;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 
@@ -50,8 +51,8 @@ public class LoginViewModel extends ViewModel {
             mJsonObjectLogin.put("email", strEmail);
             mJsonObjectLogin.put("role_id", strRoleID);
             mJsonObjectLogin.put("profile_pic", strProfilePic);
-            mJsonObjectLogin.put("device_type", "1");
-            mJsonObjectLogin.put("device_token", "123");
+            mJsonObjectLogin.put("device_type", TagValues.DEVICE_TYPE);
+            mJsonObjectLogin.put("device_token", mUtility.getAppPrefString(TagValues.PREF_USER_DEVICE_ID));
         } catch (Exception e) {
             e.printStackTrace();
         }

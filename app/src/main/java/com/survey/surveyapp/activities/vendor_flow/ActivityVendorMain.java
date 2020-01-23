@@ -1,6 +1,7 @@
 package com.survey.surveyapp.activities.vendor_flow;
 
 import android.os.Bundle;
+import android.os.Handler;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,11 +14,14 @@ import com.survey.surveyapp.R;
 import com.survey.surveyapp.activities.user_flow.UserBaseActivity;
 import com.survey.surveyapp.activities.vendor_flow.fragment.FragmentVendorDashboard;
 import com.survey.surveyapp.activities.vendor_flow.fragment.FragmentVendorDashboardCreateNewSurvey;
+import com.survey.surveyapp.activities.vendor_flow.fragment.FragmentVendorDashboardCurrentSurveys;
 import com.survey.surveyapp.activities.vendor_flow.fragment.FragmentVendorMenu;
 import com.survey.surveyapp.activities.vendor_flow.fragment.FragmentVendorProfile;
 import com.survey.surveyapp.databinding.ActivityVendorMainBinding;
 import com.survey.surveyapp.viewmodels.VendorMainViewModel;
 import com.survey.surveyapp.vo.VoResponseCreateNewSurvey;
+import com.survey.surveyapp.vo.VoResponseCurrentSurvey;
+import com.survey.surveyapp.vo.VoResponsePreviousSurvey;
 
 import it.sephiroth.android.library.bottomnavigation.BottomNavigation;
 
@@ -40,17 +44,33 @@ public class ActivityVendorMain extends UserBaseActivity {
         initToolbar();
         initViewPager();
 
-        mVendorMainViewModel.mLiveDataCreateNewSurvey.observe(this, new Observer<VoResponseCreateNewSurvey>() {
-            @Override
-            public void onChanged(VoResponseCreateNewSurvey voResponseCreateNewSurvey) {
-                if (voResponseCreateNewSurvey != null) {
-                    Fragment mFragmentCurrent = getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.activity_vendor_main_viewpager + ":" +
-                            mActivityVendorMainBinding.activityVendorMainViewpager.getCurrentItem());
+        mVendorMainViewModel.mLiveDataCreateNewSurvey.observe(this, voResponseCreateNewSurvey -> {
+            if (voResponseCreateNewSurvey != null) {
+                Fragment mFragmentCurrent = getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.activity_vendor_main_viewpager + ":" +
+                        mActivityVendorMainBinding.activityVendorMainViewpager.getCurrentItem());
 
-                    if (mFragmentCurrent instanceof FragmentVendorDashboardCreateNewSurvey) {
-                        ((FragmentVendorDashboardCreateNewSurvey) mFragmentCurrent).gotServiceResponse(voResponseCreateNewSurvey);
-                    }
+                if (mFragmentCurrent instanceof FragmentVendorDashboardCreateNewSurvey) {
+                    ((FragmentVendorDashboardCreateNewSurvey) mFragmentCurrent).gotServiceResponse(voResponseCreateNewSurvey);
                 }
+            }
+        });
+
+        mVendorMainViewModel.mLiveDataCurrentSurvey.observe(this, voResponseCurrentSurvey -> {
+            if (voResponseCurrentSurvey != null) {
+
+                Fragment mFragmentCurrent = getSupportFragmentManager().findFragmentByTag("android:switcher:" + R.id.activity_vendor_main_viewpager + ":" +
+                        mActivityVendorMainBinding.activityVendorMainViewpager.getCurrentItem());
+
+                if (mFragmentCurrent instanceof FragmentVendorDashboard) {
+                    System.out.println("Darshan... Current Survey : " + voResponseCurrentSurvey.getSurvey_list().size());
+                    ((FragmentVendorDashboard) mFragmentCurrent).gotServiceResponse(voResponseCurrentSurvey);
+                }
+            }
+        });
+
+        mVendorMainViewModel.mLiveDataPreviousSurvey.observe(this, voResponsePreviousSurvey -> {
+            if (voResponsePreviousSurvey != null) {
+
             }
         });
 

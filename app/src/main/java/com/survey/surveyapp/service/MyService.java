@@ -3,8 +3,10 @@ package com.survey.surveyapp.service;
 import com.survey.surveyapp.vo.VoResponseCheckUserExist;
 import com.survey.surveyapp.vo.VoResponseAddSurveyQuestions;
 import com.survey.surveyapp.vo.VoResponseCreateNewSurvey;
+import com.survey.surveyapp.vo.VoResponseCurrentSurvey;
 import com.survey.surveyapp.vo.VoResponseFetchCategory;
 import com.survey.surveyapp.vo.VoResponseLogin;
+import com.survey.surveyapp.vo.VoResponsePreviousSurvey;
 import com.survey.surveyapp.vo.VoResponseRegister;
 import com.survey.surveyapp.vo.VoResponseSocialLogin;
 
@@ -289,6 +291,72 @@ public class MyService {
 
                     }
                 });
+    }
+
+    public void fetchCurrentSurvey(String mStringAccessToken, String mStringKey, final ServiceCallback<VoResponseCurrentSurvey> mServiceCallback) {
+
+        mApiService.fetchCurrentSurvey(mStringAccessToken, mStringKey)
+                .timeout(30, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .flatMap(data -> Observable.just(data))
+                .filter(data -> data != null)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<VoResponseCurrentSurvey>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(VoResponseCurrentSurvey voResponseCurrentSurvey) {
+                        mServiceCallback.onSuccess(voResponseCurrentSurvey);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        mServiceCallback.onError(e);
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
+    }
+
+    public void fetchPreviousSurvey(String mStringAccessToken, String mStringKey, final ServiceCallback<VoResponsePreviousSurvey> mServiceCallback) {
+
+        mApiService.fetchPreviousSurvey(mStringAccessToken, mStringKey)
+                .timeout(30, TimeUnit.SECONDS)
+                .subscribeOn(Schedulers.io())
+                .flatMap(data -> Observable.just(data))
+                .filter(data -> data != null)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(new Observer<VoResponsePreviousSurvey>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(VoResponsePreviousSurvey voResponsePreviousSurvey) {
+                        mServiceCallback.onSuccess(voResponsePreviousSurvey);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        mServiceCallback.onError(e);
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+
     }
 
     public interface ServiceCallback<T> {
